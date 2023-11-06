@@ -1,0 +1,47 @@
+<section class="hero">
+  <div class="hero__container">
+    <h2 class="hero__h2 h2 color-white255">
+      Используйте все возможности
+    </h2>
+    <h3 class="hero__h3 h3">
+      приближающегося праздника!
+    </h3>
+    <p class="hero__desc desc">
+      Закажите новогодний набор сейчас и получите дополнительную <span>скидку 15%</span> от оптовых цен!
+    </p>
+    <div class="hero__download">
+      <h4 class="hero__h4 h4">
+        Получи оптовые цены сейчас
+      </h4>
+      <form class="hero__form hero__form_js" action="mail.php" enctype="multipart/form-data" method="POST"
+        aria-label="Здесь вы можете оставить свои данные и скачать файл">
+        <input type="hidden" name="admin_email[]" value="lyaisan.333@yandex.ru">
+        <!--darki@yandex.ru-->
+        <input type="hidden" name="form_subject" value="Сообщение из сайта Ёлочка, скачали прайс">
+        <div class="hero__block">
+          <!--data здесь он обрабатывает плагин валидатор кода-->
+          <label class="hero__label" for="name">
+            <input class="hero__input" type="text" name="name" placeholder="Ваше имя" data-validate-field="name"
+              id="name" required aria-label="Введите ваше имя" maxlength="10">
+          </label>
+          <label class="hero__label" for="tel">
+            <input class="hero__input" type="tel" name="tel" placeholder="Ваш телефон" data-validate-field="tel"
+              data-validate-rules="phone" id="tel" aria-label="Введите ваш телефон">
+          </label>
+        </div>
+        <button class="hero__btn btn">Скачать прайс</button>
+      </form>
+      <div class="hero__сhristmasTree modal-сhristmasTree hero__сhristmasTree_js">
+        <div class="hero__сhristmasTree-sps modal-сhristmasTree-sps hero__сhristmasTree-sps_js">
+          <div class="hero__before modal-before">
+            <button class="hero__modal-close modal-close hero__modal-close_js" title="Закрыть">
+              &#10006;
+            </button>
+            <a class="hero__btn btn" href="img/land.jpg" download>Скачать прайс</a>
+          </div>
+        </div>
+      </div>
+      <!--Модалка-hero__сhristmasTree-->
+    </div>
+  </div>
+</section>

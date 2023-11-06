@@ -1,0 +1,69 @@
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <link rel="shorcut icon" href="img/favicon.png"> -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Для поиска в сети-->
+  <meta name="description" content="Рады видеть Вас на нашем сайте.">
+  <meta property="og:title" content="Производство искуственных елок и украшений">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="здесь ссылка на сайт">
+  <meta property="og:image" content="img/ogImage.jpg">
+  <meta name="keywords" content="ёлки, нг, доставка, ёлочки, daycare, подарки, купи">
+  <!-- //Для поиска в сети-->
+   
+  <!-- для modal-order выше всех jquery -->
+  <script defer="defer" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <!--Аккордеон тоже самое и для телефона-->
+  <script defer src="https://code.jquery.com/jquery-1.12.4.min.js"
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <!--минифицированный библиотека. для телефона-->
+  <script defer src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+  <!--Скроллбар для modal-order-->
+  <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css">
+  <!--Скроллбар для modal-order-->
+  <script defer="defer" src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+  <!-- Яндекс карта -->
+  <script defer="defer" src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript"></script>
+  <!--Маска формы input-ов. В Галпе лучше ссылками ставит. У Сборки vendor.js не воспринимает. Файлы в папке(vendor) работают и без них. Удалив их, беды не будет.-->
+  <!-- <script defer="defer" src="vendor/inputmask.min.js"></script> -->  
+  <script src="https://rawcdn.githack.com/RobinHerbots/Inputmask/a95afe64e7467eb14eb8aa8ccbfb6340a46fb8e3/dist/inputmask.min.js"></script>
+  <!--Валидатор input-ов. В Галпе лучше ссылками ставит. У Сборки vendor.js не воспринимает. Файлы в папке(vendor) работают и без них. Удалив их, беды не будет.-->
+  <!-- <script defer="defer" src="vendor/just-validate.js"></script> -->  
+  <script src="https://rawcdn.githack.com/horprogs/Just-validate/7661936417e8aaad0e059291890c68a6bf473f6b/dist/js/just-validate.min.js"></script>
+  <title>Елочка, гори!</title>
+  <link rel="preload" href="fonts/PT_Sans-Web-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/PT_Sans-Web-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/MyriadPro-Regular.woff2" as="font" type="font/woff2" crossorigin> 
+  <link rel="stylesheet" href="css/vendor.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script defer src="js/main.js"></script>
+  <script>
+    // для Базы данных timeweb.ru
+    const formBaza = document.querySelector('.form');
+    if (formBaza) { // Обёртка if. Спасение Gulp-а от null в браузере
+      $(function () {
+        $('.form-button').on('click', function () {
+          let data = {
+            'name': $('[name="name"]').val(),
+            'tel': $('[name="tel"]').val(),
+            'email': $('[name="email"]').val(),
+            'message': $('[name="message"]').val()
+          };
+          $.post('mail.php', data, function (response) {
+            if (response == 1) {
+              $('[name="name"]').val('');
+              $('[name="tel"]').val('');
+              $('[name="email"]').val('');
+              $('[name="message"]').val('');
+            }
+          })
+
+          return false;
+        });
+      });
+    };  
+  </script>
+</head>

@@ -1,0 +1,49 @@
+@import "../mixins/_breakpoint.scss";
+
+/*** decoration(Каталог украшений для елок) 1920px***/
+.decoration {
+  padding: 41px 0 80px;
+  background-color: var(--color-rgb244);
+
+  &__h2 {
+    margin-bottom: 68px;
+  }
+}
+/*** // decoration(Каталог украшений для елок) 1920px***/
+
+
+@include desktop {/*1600*/ 
+
+}
+
+@include small-desktop {/*1250*/ 
+
+}
+
+@include tablet {/*1050*/ 
+  .alive__card .template-card__list, .decoration .template-card__list {
+    -webkit-grid-template-columns: repeat(2, 1fr);
+    -o-grid-template-columns: repeat(2, 1fr);
+    -moz-grid-template-columns: repeat(2, 1fr);
+    -ms-grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include small-tablet {/*787*/   
+  .artificial, .alive, .candies, .decoration {
+    padding-bottom: 60px;
+  }
+
+  .artificial__h2, .alive__h2, .candies__h2, .decoration__h2 {
+    margin-bottom: 40px;
+  }
+}
+
+@include mobile {/*676*/ 
+
+}
+
+@include small-mobile {/*515*/ 
+
+}

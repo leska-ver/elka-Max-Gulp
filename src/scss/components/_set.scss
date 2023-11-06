@@ -1,0 +1,57 @@
+@import "../mixins/_breakpoint.scss";
+
+/*** set-1920px***/
+.set {
+  padding: 41px 0 60px;
+  background: url("../img/elka-fon03.jpg") center / cover no-repeat;
+  background-color: var(--color-limeadeA);
+
+  &__container {
+    padding: 0 54px;
+  }
+
+  &__h2 {
+    margin-bottom: 6px;
+  }
+
+  &__desc {
+    margin: 0 0 61px;
+    font-size: clamp(14px, 5vw, 18px);
+    color: var(--color-rgb255);
+    line-height: 1.2;
+    text-align: center;
+    letter-spacing: 1.45px;
+  }
+}
+/*** // set-1920px***/
+
+
+@include desktop {/*1600*/ 
+  
+}
+
+@include small-desktop {/*1250*/ 
+
+}
+
+@include tablet {/*1050*/ 
+  .set__desc {
+    letter-spacing: 1px;
+  }
+}
+
+@include small-tablet {/*787*/ 
+  [class*="__container"] {
+    padding: 0 30px;
+  }
+}
+
+@include mobile {/*676*/ 
+
+}
+
+@include small-mobile {/*515*/ 
+  [class*="__container"] {
+    padding: 0 15px;
+  }
+}

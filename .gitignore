@@ -1,0 +1,3 @@
+/node_modules
+# /app Скроет в githube
+package-lock.json

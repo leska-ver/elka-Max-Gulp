@@ -1,0 +1,261 @@
+@import "../mixins/_breakpoint.scss";
+
+/*** buy-1920px***/
+.buy {
+  padding: 70px 0 61px;
+  background: url("../img/elka-fon02.jpg") center / cover no-repeat;
+  background-color: var(--color-limeadeA);
+
+  &__container {
+    text-align: center;
+  }
+
+  &__h2 {
+    margin: 0 0 13px auto;
+    width: 627px;
+    /*clamp() - резина размера шрифта*/
+    font-size: clamp(18px, 4vw, 50px);
+    line-height: 1;
+  }
+
+  &__desc {
+    margin: 0 0 35px auto;
+    width: 610px;
+    font-weight: 400;
+    font-size: clamp(17px, 5vw, 33px);
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  &__desc_474 {
+    display: none;
+  }
+
+  &__h3 { 
+    margin: 0 0 53px auto;
+    width: 623px;
+    font-weight: 400;
+    font-size: clamp(14px, 5vw, 30px);
+  }
+
+  &__h4 {
+    margin-bottom: 38px;
+    text-transform: uppercase;
+  }
+
+  /*---Телефон валидация и маска---*/
+  &__form {
+    margin: 0 111px 0 auto;
+    width: 410px;
+  }
+
+  &__block {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 19px;
+  }
+
+  &__label {
+    position: relative;  
+  }
+
+  &__label:not(:first-child) .js-validate-error-label {
+    display: none;
+  }
+
+  &__label .js-validate-error-label {
+    top: -60%;
+    display: block;
+    font-weight: 600;
+    font-size: clamp(18px, 3vw, 25px);
+    -webkit-text-stroke: 0.5px rgba(0,0,0,.5);
+  }
+
+  &__label:not(:last-child) {
+    margin-bottom: 11px; 
+  }
+
+  &__input {
+    padding: 17px;
+    border-radius: 5px;
+    border: 1px solid var(--color-alto);
+    width: 100%;
+    font-size: clamp(14px, 4vw, 16px);
+    background-color: var(--color-rgb247);
+    -webkit-transition: background-color .4s ease-in-out;
+    -moz-transition: background-color .4s ease-in-out;
+    -ms-transition: background-color .4s ease-in-out;
+    -o-transition: background-color .4s ease-in-out;
+    transition: background-color .4s ease-in-out;
+  }
+
+  &__input:focus {
+    outline: none;
+    border: 1px solid var(--color-limeade);
+  }
+
+  &__input:hover {
+    background-color: var(--color-gallery);
+  }
+
+  &__input:active {
+    opacity: .7;
+  }
+
+  &__btn {
+    padding: 23px 29.5% 18px;
+    font-size: clamp(14px, 5vw, 20px);
+  }
+
+  /*** modal-Модальное окно 1920px***/
+  &__сhristmasTree {
+    position: fixed;
+    overflow: auto;
+    text-align: center;
+    width: 100%;
+  }
+
+  &__сhristmasTree::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  &__modal-h2 {
+    margin-top: 0;
+    margin-bottom: 70px;
+  }
+
+  &__сhristmasTree_js {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;/*Для js перекрыть .modal*/
+  }
+
+  &__сhristmasTree_js_active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__сhristmasTree-sps_js {
+    display: none;
+    opacity: 0;
+  }
+
+  &__сhristmasTree-sps_js_active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    opacity: 1;
+  }
+
+  &__before {
+    padding-top: 121px;
+  }
+}  
+/*** // modal-Модальное окно***/
+/*** // buy-1920px***/
+
+
+@include desktop {/*1600*/ 
+
+}
+
+@include small-desktop {/*1250*/ 
+
+}
+
+@include tablet {/*1050*/ 
+  .buy__container {
+    width: 696px;
+  }
+
+  .buy__h2 {
+    margin: 0 0 13px 0;
+    width: 100%;
+  }
+
+  .buy__desc {
+    margin: 0 0 35px 0;
+    width: 100%;
+  } 
+
+  .buy__h3 {
+    margin: 0 0 53px 0;
+    width: 100%;
+  } 
+}
+
+@include small-tablet {/*787*/ 
+  // .btn {
+  //   padding: 12px 14px;
+  // }
+  
+  .buy {
+    padding: 50px 0;
+    background-position: 52%;
+
+    &__container {
+      width: 100%;
+    }
+
+    &__before {
+      padding-top: 99px;
+    }
+
+    &__desc {
+      margin-bottom: 15px;
+    }
+
+    &__h3 {
+      margin: 0 0 33px 0;
+    }
+
+    &__form {
+      margin: 0 auto;
+      width: 70%;
+    }
+
+    &__label .js-validate-error-label {
+      top: -25px;
+    }
+
+    &__btn {
+      font-size: clamp(14px, 4vw, 16px);
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
+
+@include mobile {/*676*/ 
+
+}
+
+@include small-mobile {/*515*/ 
+  .buy__desc_1920 {
+    display: none;
+  }
+
+  .buy__desc_474 {
+    display: block;
+    text-align: left;
+  }
+
+  .buy__form {
+    width: 100%;
+  }
+
+  .buy__label .js-validate-error-label {
+    top: -23px;
+    -webkit-text-stroke: 0.2px rgba(0,0,0,.3);
+  }
+}

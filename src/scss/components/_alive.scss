@@ -1,0 +1,43 @@
+@import "../mixins/_breakpoint.scss";
+
+/*** alive(Каталог живых елок) 1920px***/
+.alive {
+  padding: 41px 0 83px;
+  background-color: var(--color-rgb244);
+
+  &__h2 {
+    margin-bottom: 68px;
+  }
+}
+/*** // alive(Каталог живых елок) 1920px***/
+
+
+@include desktop {/*1600*/ 
+
+}
+
+@include small-desktop {/*1250*/ 
+
+}
+
+@include tablet {/*1050*/ 
+  .alive__card .template-card__list, .decoration .template-card__list {
+    -webkit-grid-template-columns: repeat(2, 1fr);
+    -o-grid-template-columns: repeat(2, 1fr);
+    -moz-grid-template-columns: repeat(2, 1fr);
+    -ms-grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include small-tablet {/*787*/ 
+  
+}
+
+@include mobile {/*676*/ 
+
+}
+
+@include small-mobile {/*515*/ 
+
+}

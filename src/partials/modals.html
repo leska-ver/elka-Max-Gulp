@@ -1,0 +1,71 @@
+<div class="modals">
+  <div class="modals__overlay"></div>
+  <!-- modal-Модальное окно СПАСИБО-шаблон -->
+  <div class="modals__thanks modals__thanks_js">
+    <div class="modals__sps modals__sps_js">
+      <div class="modals__before modal-before">
+        <button class="modals__close closeX closeX_js" title="Закрыть">
+          &#10006;
+        </button>
+        <h2 class="modals__h2 modal-text modal-h2 h2">
+          Товар будет отправлен на указанную Вами почту.
+        </h2>
+      </div>
+    </div>
+  </div>
+  <!-- // modal-Модальное окно СПАСИБО-шаблон -->
+  <div class="modal modal-order" data-modal-open="order" data-simplebar>
+    <button class="modal__close-mobile btn-reset for-mobile" aria-label="Закрыть окно" data-swipe-treshold="20"
+      data-swipe-timeout="500" data-swipe-ignore="false"></button>
+    <button class="modal__close closeX">x</button>
+    <h2 class="modal__h2 modal-text h2">Бронирование заказа</h2>
+    <div class="tariff"></div>
+    <form class="modal__form modal__form_js" action="mail.php" enctype="multipart/form-data" method="POST"
+      aria-label="Здесь Вы можете заказать товар">
+      <input type="hidden" name="admin_email[]" value="lyaisan.333@yandex.ru">
+      <!--darki@yandex.ru-->
+      <input type="hidden" name="admin_email[]" value="kussa90-03@mail.ru">
+      <input type="hidden" name="form_subject" value="Сообщение из сайта Ёлочка, заказ">
+      <div class="modal__block">
+        <!--data здесь он обрабатывает плагин валидатор кода-->
+        <label class="modal__label" for="nameZakaz">
+          <input class="modal__input" type="text" name="name" placeholder="Фамилия и Имя" data-validate-field="name"
+            id="nameZakaz" required="" aria-label="Введите ваше Фамилию и Имя" maxlength="20">
+        </label>
+        <label class="modal__label" for="telZakaz">
+          <input class="modal__input" type="tel" name="tel" placeholder="Ваш телефон" data-validate-field="tel"
+            data-validate-rules="phone" id="telZakaz" aria-label="Введите ваш телефон">
+        </label>
+        <label class="modal__label" for="emailZakaz">
+          <input class="modal__input" type="email" name="email" placeholder="Email" data-validate-field="email"
+            id="emailZakaz" aria-label="Введите вашу почту" maxlength="35">
+        </label>
+        <label class="modal__label" for="messageZakaz">
+          <span class="modal__label-descr"></span>
+          <textarea class="modal__textarea" name="message" id="messageZakaz" placeholder="Напишите через запятую: адрес места жительства, название товара, размер, количество." data-validate-field="text"></textarea>
+        </label>
+      </div>
+      <div class="modal__form-btn">
+        <button class="modal__button btn">Заказать</button>
+        <div class="modal__policy">
+          Нажимая на кнопку, вы соглашаетесь с нашей
+          <a href="https://rocket-telecom.ru/wp-content/uploads/2023/06/politika-v-otnoshenii-obrabotki-personalnyh-dannyh-rtcz.pdf?ysclid=lnygqc4a8t42508700"
+            target="_blank">политикой обработки персональных данных</a>
+          <!-- href="land.pdf" -->
+        </div>
+      </div>
+    </form>
+    <div class="modal__ord">
+      <!-- Инфо о Ёлке в модалке -->
+    </div>
+    <div class="modal__bottom">
+      <div class="">
+        <!-- <img src="/img/manager.png" aria-hidden="true" alt="Менеджер"> -->
+      </div>
+      <div class="modal__text">
+        Остались вопросы? Свяжитесь со мной любым удобным способом:
+        <a href="tel:88002004017">8 (800) 200-40-17</a> или <a href="mailto:info@.mail">info@.mail</a>
+      </div>
+    </div>
+  </div>
+</div>

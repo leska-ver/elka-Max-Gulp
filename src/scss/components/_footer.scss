@@ -1,0 +1,53 @@
+@import "../mixins/_breakpoint.scss";
+
+/*** footer(Подвал) 1920px***/
+.footer {
+  padding: 15px 0;
+  max-width: 100%;
+}
+/*** // footer(Подвал) 1920px***/
+
+
+@include desktop {/*1600*/ 
+
+}
+
+@include small-desktop {/*1250*/ 
+
+}
+
+@include tablet {/*1050*/ 
+
+}
+
+@include small-tablet {/*787*/ 
+  .btn {
+    padding: 12px 14px;
+  }
+  
+  .footer__pattern .pattern__logo {
+    -webkit-grid-template-columns: 50px, 1fr;
+    -o-grid-template-columns: 50px, 1fr;
+    -moz-grid-template-columns: 50px, 1fr;
+    -ms-grid-template-columns: 50px, 1fr;
+    grid-template-columns: 50px 1fr;
+    align-items: center;
+    margin: 0 auto 10px;
+  } 
+}
+
+@include mobile {/*676*/ 
+
+}
+
+@include small-mobile {/*515*/ 
+  .footer__pattern .pattern__logo {
+    -webkit-grid-template-columns: 50px, 177px;
+    -o-grid-template-columns: 50px, 177px;
+    -moz-grid-template-columns: 50px, 177px;
+    -ms-grid-template-columns: 50px, 177px;
+    grid-template-columns: 50px 177px;
+    align-items: inherit;
+    margin: 0 0 10px;
+  }
+}

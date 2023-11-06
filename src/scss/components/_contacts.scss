@@ -1,0 +1,233 @@
+@import "../mixins/_breakpoint.scss";
+
+/***Контакты-contacts 1920px***/
+.contacts {
+  position: relative;
+  background: url("../img/map.jpg") center / cover no-repeat;
+
+  &__modal {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 31px 0 0 25.5%;
+    padding: 53px 58px;
+    width: 437px;
+    height: 86%;
+    background-color: #fff;
+    z-index: 10;
+    /* opacity: 1; */
+  }
+
+  /*Для кнопки js*/
+  &__close-maps {
+    display: none;
+    /* opacity: 0; */
+    -webkit-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+  }
+  /*Конец яндекс карта*/
+
+  &__btn {
+    position: absolute;  
+    top: 20px;
+    right: 20px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    width: 19px;
+    height: 19px;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    z-index: 5;
+    -webkit-transition: border .4s ease-in-out, background-color .4s ease-in-out;
+    -ms-transition: border .4s ease-in-out, background-color .4s ease-in-out;
+    -moz-transition: border .4s ease-in-out, background-color .4s ease-in-out;
+    -o-transition: border .4s ease-in-out, background-color .4s ease-in-out;
+    transition: border .4s ease-in-out, background-color .4s ease-in-out;
+
+    &:focus {
+      border: 2px solid var(--color-limeade);
+      background-color: var(--color-limeadeA);
+    }
+
+    &:hover {
+      border: 2px solid var(--color-mineShaft);
+      background-color: var(--color-mineShaft);
+    }
+
+    &:active {
+      opacity: .7;
+    }
+
+    & span:nth-child(1) {
+      -webkit-transform: rotate(-315deg);
+      -moz-transform: rotate(-315deg);
+      -o-transform: rotate(-315deg);
+      transform: rotate(-315deg);
+    }
+
+    & span:nth-child(1), & span:nth-child(2) {
+      position: absolute;
+      top: 1.8px;
+      left: 7px;
+      width: 1.5px;
+      height: 12px;
+      background-color: var(--color-white);
+    }
+
+    & span:nth-child(2) {
+      -webkit-transform: rotate(315deg);
+      -moz-transform: rotate(315deg);
+      -o-transform: rotate(315deg);
+      transform: rotate(315deg);
+    }
+  }
+
+  &__h3 {
+    margin: 0 0 37px 0;
+    font-size: clamp(15px, 4vw, 30px);
+    text-transform: uppercase;
+  }
+
+  &__address {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    /*Убирает курсив у тега address*/
+    font-style: normal; 
+    color: var(--color-silver);
+  }
+
+  &__block {
+    display: -ms-grid;
+    display: grid;
+    -webkit-grid-template-columns: 30px, 208px;
+    -o-grid-template-columns: 30px, 208px;
+    -moz-grid-template-columns: 30px, 208px;
+    -ms-grid-template-columns: 30px, 208px;
+    grid-template-columns: 30px 208px;
+    -webkit--gap: 23px;
+    -moz--gap: 23px;
+    gap: 23px;
+
+    &:not(:last-child) {
+      margin-bottom: 38px;
+    }
+  }
+
+  &__desc {
+    margin: 0;
+    font-size: clamp(14px, 3vw, 18.7px);
+    line-height: 1.2;
+  }
+
+  &__link {
+    display: -ms-grid;
+    display: grid;
+    -webkit-grid-template-columns: 30px, 1fr;
+    -o-grid-template-columns: 30px, 1fr;
+    -moz-grid-template-columns: 30px, 1fr;
+    -ms-grid-template-columns: 30px, 1fr;
+    grid-template-columns: 30px 1fr;
+    -webkit--gap: 23px;
+    -moz--gap: 23px;
+    gap: 23px;
+
+    &:focus {
+      border: none;
+      outline: 1px solid var(--color-limeade); 
+      outline-offset: 8px;
+    }
+
+    &:hover {
+      outline: 1px solid var(--color-doveGray); 
+      outline-offset: 8px;
+    }
+
+    &:active {
+      opacity: .7;
+    }
+
+    & svg {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__spanPhone {
+    margin-top: -7px;
+    font-size: clamp(21px, 3vw, 25px);
+    line-height: 1.2;
+  }
+}
+
+
+@include desktop {/*1600*/ 
+
+}
+
+@include small-desktop {/*1250*/ 
+
+}
+
+@include tablet {/*1050*/ 
+  .contacts__modal {
+    margin: 31px 0 0 5%;
+    padding: 40px;
+    width: 45%;
+  }
+
+  .contacts__h3 {
+    margin-bottom: 25px;
+  }
+
+  .contacts__block {
+    -webkit-grid-template-columns: 30px, 1fr;
+    -o-grid-template-columns: 30px, 1fr;
+    -moz-grid-template-columns: 30px, 1fr;
+    -ms-grid-template-columns: 30px, 1fr;
+    grid-template-columns: 30px 1fr;
+    -webkit--gap: 15px;
+    -moz--gap: 15px;
+    gap: 15px;
+  }
+}
+
+@include small-tablet {/*787*/ 
+  
+}
+
+@include mobile {/*676*/ 
+  .contacts__modal {
+    justify-content: inherit;
+    height: auto;
+    margin: 20px 15px;
+    padding: 20px;
+    width: 90%;
+  }
+
+  .contacts__h3, .contacts__block:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  .contacts__block, .contacts__link {
+    display: block;
+  }
+
+  .contacts__block svg, .contacts__block img, .contacts__link svg {
+    display: none;
+  }
+
+  .contacts__btn {
+    top: 15px;
+    right: 15px;
+  }  
+}
+
+@include small-mobile {/*515*/ 
+
+}

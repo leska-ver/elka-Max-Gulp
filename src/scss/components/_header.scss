@@ -1,0 +1,312 @@
+@import "../mixins/_breakpoint.scss";
+
+/***Шапка header-1920px***/
+.header {
+  padding-top: 15px;
+  max-width: 100%;
+
+  &__container_margin {
+    margin-bottom: 12px;
+  }
+
+  /*header__block*/
+  &__block {
+    /* margin: -5px -5px -5px 20px; */
+    padding: 10px 0; /*B PP - 5px 0 17px;*/
+    background-color: var(--color-limeade);
+  }
+
+  &__burger {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .burger {
+    position: relative;
+    display: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  &__nav { 
+    /*Нужен для разворота burger*/
+    z-index: 2;
+  }
+
+  &__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 0;
+    width: 656px;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 31px;
+    margin-bottom: 2px;
+  }
+
+  &__btn {
+    position: relative;
+    border: 1px solid transparent;
+    font-family: 'MyriadPro', sans-serif;
+    font-size: clamp(14px, 3vw, 18px);
+    line-height: 1.2px;  
+    text-decoration: underline;
+    color: var(--color-white);
+    background-color: transparent;
+    cursor: pointer;
+    -webkit-transition: color .4s ease-in-out;
+    -ms-transition: color .4s ease-in-out;
+    -moz-transition: color .4s ease-in-out;
+    -o-transition: color .4s ease-in-out;
+    transition: color .4s ease-in-out;
+
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid yellow;
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: yellow;
+      text-decoration: none;
+    }
+
+    &:active {
+      opacity: .7;
+    }
+  }
+}
+/*** // Шапка header-1920px***/
+
+
+@include desktop {/*1600*/ 
+
+}
+
+@include small-desktop {/*1250*/ 
+
+}
+
+@include tablet {/*1050*/ 
+
+}
+
+@include small-tablet {/*787*/   
+  .burger {
+    position: absolute;
+    top: 30px;
+    right: 36px;
+    display: block;
+    background: -moz-linear-gradient(0deg, var(--color-limeade) 3%, var(--color-limeadeA) 5%, #5ad310 100%);/*Лиса*/
+    background: -webkit-linear-gradient(0deg, var(--color-limeade) 3%, var(--color-limeadeA) 5%, #5ad310 100%);/*Safari и Chrome*/
+    background: -ms-linear-gradient(0deg, var(--color-limeade) 3%, var(--color-limeadeA) 5%, #5ad310 100%);/*Internet Explorer*/
+    background: -o-linear-gradient(0deg, var(--color-limeade) 3%, var(--color-limeadeA) 5%, #5ad310 100%);/*Опера*/
+    background: linear-gradient(0deg, var(--color-limeade) 3%, var(--color-limeadeA) 5%, #5ad310 100%);/*Гугл в Gulp-e работает*/
+    outline-offset: 8px;
+    z-index: 17;
+    -webkit-transition: background .4s ease-in-out;
+    -ms-transition: background .4s ease-in-out;
+    -moz-transition: background .4s ease-in-out;
+    -o-transition: background .4s ease-in-out;
+    transition: background .4s ease-in-out;
+  }
+
+  .burger:focus {
+    outline: none;
+  }
+
+  .burger:hover {
+    background: -moz-linear-gradient(0deg, #640000 3%, #8c0202 5%, #e30000 100%);/*Лиса*/
+    background: -webkit-linear-gradient(0deg, #640000 3%, #8c0202 5%, #e30000 100%);/*Safari и Chrome*/
+    background: -ms-linear-gradient(0deg, #640000 3%, #8c0202 5%, #e30000 100%);/*Internet Explorer*/
+    background: -o-linear-gradient(0deg, #640000 3%, #8c0202 5%, #e30000 100%);/*Опера*/
+    background: linear-gradient(0deg, #640000 3%, #8c0202 5%, #e30000 100%);/*Гугл в Gulp-e работает*/
+  }
+
+  .burger:active {
+    background-color: transparent;
+  }
+
+  .burger__line {
+    display: block;
+    position: absolute;
+    width: 60%;
+    height: 3px;
+    background-color: var(--color-alto);
+    background-color: var(--color-white);
+    border-radius: 9px;
+    opacity: 1;
+    margin-top: 8px;
+    left: 8px;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: background-color .4s ease-in-out;
+    -moz-transition: background-color .4s ease-in-out;
+    -o-transition: background-color .4s ease-in-out;
+    transition: background-color .4s ease-in-out;
+  }
+
+  /*Палочки*/
+  .burger__line:nth-child(1) {
+    top: 0px;
+  }
+
+  .burger__line:nth-child(2) {
+    top: 11px;
+  }
+
+  .burger__line:nth-child(3) {
+    top: 21.5px;
+  }
+
+  .burger:focus .burger__line,
+  .burger:focus .burger__line:nth-child(2),
+  .burger:focus .burger__line:nth-child(3),
+  .burger:hover .burger__line,
+  .burger:hover .burger__line:nth-child(2),
+  .burger:hover .burger__line:nth-child(3),
+  .burger:active .burger__line,
+  .burger:active .burger__line:nth-child(2),
+  .burger:active .burger__line:nth-child(3) {
+    background-color: var(--color-white);
+  }
+  /* 
+  .burger:focus {
+    background-color: var(--color-black);
+  } */
+
+  /*Крест*/
+  .burger.open .burger__line:nth-child(1) {
+    top: 13px;
+    left: -4px;
+    width: 38px;
+    /*38px длина палочки*/
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .burger.open .burger__line:nth-child(2) {
+    width: 0%;
+    opacity: 0;
+  }
+
+  .burger.open .burger__line:nth-child(3) {
+    top: 13px;
+    left: -5px;
+    width: 38px;
+    /*38px длина палочки*/
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  /*JS для burger-а*/
+  .menu {
+    transform: translateX(300%);
+    /*Скрывает меню*/
+  }
+
+  .menu.is-active {
+    /*is-active js*/
+    transform: none;
+  }
+
+  .burger.open .burger__line:nth-child(1),
+  .burger.open .burger__line:nth-child(3) {
+    top: 11px;
+    left: 7px;
+    width: 25px;
+    height: 3px;
+    /* background-color: var(--color-white); */
+  }
+
+  .burger.open:focus .burger__line:nth-child(1),
+  .burger.open:focus .burger__line:nth-child(3) {
+    background-color: var(--color-white);
+  }
+
+  .burger.open:active .burger__line:nth-child(1),
+  .burger.open:active .burger__line:nth-child(3) {
+    opacity: .7;
+  }
+
+  .burger.open .burger__line:nth-child(1) {
+    -webkit-transform: rotate(-315deg);
+    -moz-transform: rotate(-315deg);
+    -o-transform: rotate(-315deg);
+    transform: rotate(-315deg);
+  }
+
+  .burger.open .burger__line:nth-child(3) {
+    -webkit-transform: rotate(315deg);
+    -moz-transform: rotate(315deg);
+    -o-transform: rotate(315deg);
+    transform: rotate(315deg);
+  }
+  
+  .header {
+    position: relative;
+    padding-bottom: 193px;
+
+    &__block {
+      margin-top: -203px;
+      padding-top: 20px;
+      background-color: transparent;
+    }
+
+    &__nav {
+      position: absolute;
+      top: 0;
+      margin-left: -15px;
+      padding: 20px;
+      width: 100%;
+      background-color: var(--color-white);
+    }
+
+    &__list {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    &__btn {
+      color: var(--color-000);
+
+      &:focus {
+        border-bottom: 1px solid var(--color-limeade);
+      }
+
+      &:hover {
+        color: var(--color-limeade);
+      }
+    }
+
+    &__item:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: 25px;
+    }
+    /*Конец JS для burger-а*/
+  }
+}
+
+@include mobile {/*676*/ 
+
+}
+
+@include small-mobile {/*515*/ 
+
+}

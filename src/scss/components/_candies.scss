@@ -1,0 +1,71 @@
+@import "../mixins/_breakpoint.scss";
+
+/*** candies(Каталог елочек из конфет) 1920px***/
+.candies {
+  padding: 41px 0 84px;
+  /*В Галпе*/
+  padding: 41px 0 64px;
+  background: url("../img/elka-fon05.jpg") center / cover no-repeat;
+
+  &__h2 {
+    margin-bottom: 71px;
+  }
+
+  &__card .template-card__list {
+    -webkit-grid-template-columns: repeat(3 1fr);
+    -o-grid-template-columns: repeat(3, 1fr);
+    -moz-grid-template-columns: repeat(3, 1fr);
+    -ms-grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto 0 83px;
+    width: 700px;
+  }
+}
+/*** // candies(Каталог елочек из конфет) 1920px***/
+
+
+@include desktop {/*1600*/ 
+
+}
+
+@include small-desktop {/*1250*/ 
+
+}
+
+@include tablet {/*1050*/ 
+  .candies__card .template-card__list {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@include small-tablet {/*787*/ 
+  .artificial, .alive, .candies, .decoration {
+    padding-bottom: 60px;
+  }
+
+  .artificial__h2, .alive__h2, .candies__h2, .decoration__h2 {
+    margin-bottom: 40px;
+  }
+
+
+  .candies__card .template-card__list {
+    -webkit-grid-template-columns: repeat(2, 1fr);
+    -o-grid-template-columns: repeat(2, 1fr);
+    -moz-grid-template-columns: repeat(2, 1fr);
+    -ms-grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include mobile {/*676*/ 
+
+}
+
+@include small-mobile {/*515*/ 
+  .candies__card .template-card__list {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+  }
+}

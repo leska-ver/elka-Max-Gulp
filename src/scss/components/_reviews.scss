@@ -1,0 +1,131 @@
+@import "../mixins/_breakpoint.scss";
+
+/*** reviews(Отзыв клиента) 1920px***/
+.reviews {
+  padding: 41px 0 52px;
+
+  &__h2 {
+    margin-bottom: 71px;
+  }
+
+  &__list {
+    display: -ms-grid;
+    display: grid;
+    -webkit--gap: 52px 20px;
+    -moz--gap: 52px 20px;
+    gap: 52px 20px;
+    -webkit-grid-template-columns: repeat(2, 1fr);
+    -o-grid-template-columns: repeat(2, 1fr);
+    -moz-grid-template-columns: repeat(2, 1fr);
+    -ms-grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 5px;
+  }
+
+  &__orld {
+    display: -ms-grid;
+    display: grid;
+    -webkit--gap: 20px;
+    -moz--gap: 20px;
+    gap: 20px;
+    -webkit-grid-template-columns: 139px 1fr;
+    -o-grid-template-columns: 139px 1fr;
+    -moz-grid-template-columns: 139px 1fr;
+    -ms-grid-template-columns: 139px 1fr;
+    grid-template-columns: 139px 1fr;
+    margin-bottom: 19px;
+  }
+
+  &__sublist {
+    margin-bottom: 11px;
+    padding: 0;
+  }
+
+  &__subitem {
+    font-weight: 700;
+    font-size: clamp(14px, 4vw, 16px);
+  }
+
+  &__subitem:not(:last-child) {
+    margin: 0 0 3.5px;
+  }
+
+  &__desc {  
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  &__button {
+    justify-content: center;
+    margin-left: auto;
+    padding: 16px 43px;
+    width: 300px;
+    font-size: clamp(14px, 3vw, 18px);
+  }
+}
+/*** // reviews(Отзыв клиента) 1920px***/
+
+
+@include desktop {/*1600*/ 
+  .reviews__list {
+    -webkit--gap: 40px;
+    -moz--gap: 40px;
+    gap: 40px;
+  }
+
+  .reviews__orld {
+    -webkit-grid-template-columns: 111px 1fr;
+    -o-grid-template-columns: 111px 1fr;
+    -moz-grid-template-columns: 111px 1fr;
+    -ms-grid-template-columns: 111px 1fr;
+    grid-template-columns: 111px 1fr;
+  }
+}
+
+@include small-desktop {/*1250*/ 
+
+}
+
+@include tablet {/*1050*/ 
+  .reviews__orld {
+    display: block;
+  }
+
+  .reviews__img {
+    margin: 0 auto 13px;
+    width: 180px;
+  }
+}
+
+@include small-tablet {/*787*/ 
+  .reviews {
+    padding: 32px 0 16px;
+
+    &__h2 {
+      margin-bottom: 40px;
+    }  
+
+    &__button {
+      width: 85%;
+    }
+  }
+}
+
+@include mobile {/*676*/ 
+  .reviews__list {
+    display: block;
+  }
+
+  .reviews__item:not(:last-child) {
+    margin-bottom: 52px;
+  }
+}
+
+@include small-mobile {/*515*/ 
+  .reviews__button {
+    margin-left: 0;
+    width: 100%;
+  }
+}

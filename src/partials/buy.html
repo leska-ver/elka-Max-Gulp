@@ -1,0 +1,47 @@
+<section class="buy">
+  <div class="buy__container">
+    <h2 class="buy__h2 h2 color-white255">
+      Закажите до&nbsp;10&nbsp;ноября
+    </h2>
+    <p class="buy__desc buy__desc_1920 desc color-white255">
+      на&nbsp;сумму от&nbsp;100&nbsp;000 рублей и&nbsp;получите&nbsp;дополнительную скидку&nbsp;15%
+    </p>
+    <p class="buy__desc buy__desc_474 desc color-white255">
+      на&nbsp;сумму от&nbsp;100&nbsp;000 рублей и получите дополнительную скидку&nbsp;15%
+    </p>
+    <h3 class="buy__h3 h3 color-white255">
+      В&nbsp;декабре скидка&nbsp;5%
+    </h3>
+    <form class="buy__form buy__form_js" action="mail.php" enctype="multipart/form-data" method="POST"
+      aria-label="Здесь вы можете оставить свои данные и скачать файл">
+      <input type="hidden" name="admin_email[]" value="lyaisan.333@yandex.ru">
+      <!--darki@yandex.ru-->
+      <input type="hidden" name="form_subject" value="Сообщение из сайта Ёлочка, Закажите до 10 ноября">
+      <div class="buy__block">
+        <!--data здесь он обрабатывает плагин валидатор кода-->
+        <label class="buy__label" for="nameZ">
+          <input class="buy__input" type="text" name="name" placeholder="Ваше имя" data-validate-field="name"
+            id="nameZ" required aria-label="Введите ваше имя" maxlength="10">
+        </label>
+        <label class="buy__label" for="telZ">
+          <input class="buy__input" type="tel" name="tel" placeholder="Ваш телефон" data-validate-field="tel"
+            data-validate-rules="phone" id="telZ" aria-label="Введите ваш телефон">
+        </label>
+      </div>
+      <button class="buy__btn btn">Оставить заявку</button>
+    </form>
+    <div class="buy__сhristmasTree modal-сhristmasTree buy__сhristmasTree_js">
+      <div class="buy__сhristmasTree-sps modal-сhristmasTree-sps buy__сhristmasTree-sps_js">
+        <div class="buy__before modal-before">
+          <button class="buy__modal-close modal-close buy__modal-close_js" title="Закрыть">
+            &#10006;
+          </button>
+          <h2 class="buy__modal-h2 modal-h2 h2">
+            Спасибо, мы с вами свяжемся!
+          </h2>
+        </div>
+      </div>
+    </div>
+    <!--Модалка-buy__сhristmasTree-->
+  </div>
+</section>

@@ -1,0 +1,68 @@
+@import "../mixins/_breakpoint.scss";
+
+/*** production(Пример продукции) 1920px***/
+.production {
+  padding: 51px 0 46px;
+  background: url("../img/fon-woodlands.png") center / cover no-repeat;
+}
+
+.production__h2 {
+  margin-bottom: 76px;
+}
+
+.production__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.production__item:not(:last-child) {
+  margin-right: 25px;
+}
+
+.production__desc {
+  font-size: clamp(14px, 3vw, 18px);
+  text-align: center;
+}
+/*** production(Пример продукции) 1920px***/
+
+
+@include desktop {/*1600*/ 
+
+}
+
+@include small-desktop {/*1250*/ 
+
+}
+
+@include tablet {/*1050*/ 
+  .production__list {
+    justify-content: space-around;
+  }
+
+  .production__item:not(:last-child) {
+    margin-right: 0;
+  } 
+}
+
+@include small-tablet {/*787*/ 
+  .production {
+    padding: 16px 0 32px;
+  }
+
+  .production__h2 {
+    margin-bottom: 40px;
+  }
+}
+
+@include mobile {/*676*/ 
+
+}
+
+@include small-mobile {/*515*/ 
+
+}

@@ -1,0 +1,43 @@
+@import "../mixins/_breakpoint.scss";
+
+/*** artificial(Каталог искусственных елок) 1920px***/
+.artificial {
+  padding: 41px 0 81px;
+  background: url("../img/elka-fon04.jpg") center / cover no-repeat;
+
+  &__h2 {
+    margin-bottom: 71px;
+  }
+}
+/*** artificial(Каталог искусственных елок) 1920px***/
+
+
+@include desktop {/*1600*/ 
+
+}
+
+@include small-desktop {/*1250*/ 
+
+}
+
+@include tablet {/*1050*/ 
+
+}
+
+@include small-tablet {/*787*/   
+  .artificial, .alive, .candies, .decoration {
+    padding-bottom: 60px;
+  }
+
+  .artificial__h2, .alive__h2, .candies__h2, .decoration__h2 {
+    margin-bottom: 40px;
+  }
+}
+
+@include mobile {/*676*/ 
+
+}
+
+@include small-mobile {/*515*/ 
+
+}

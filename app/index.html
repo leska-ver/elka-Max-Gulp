@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <link rel="shorcut icon" href="img/favicon.png"> -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Для поиска в сети-->
+  <meta name="description" content="Рады видеть Вас на нашем сайте.">
+  <meta property="og:title" content="Производство искуственных елок и украшений">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="здесь ссылка на сайт">
+  <meta property="og:image" content="img/ogImage.jpg">
+  <meta name="keywords" content="ёлки, нг, доставка, ёлочки, daycare, подарки, купи">
+  <!-- //Для поиска в сети-->
+
+  <!-- для modal-order выше всех jquery -->
+  <script defer="defer" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <!--Аккордеон тоже самое и для телефона-->
+  <script defer src="https://code.jquery.com/jquery-1.12.4.min.js"
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <!--минифицированный библиотека. для телефона-->
+  <script defer src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+  <!--Скроллбар для modal-order-->
+  <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css">
+  <!--Скроллбар для modal-order-->
+  <script defer="defer" src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+  <!-- Яндекс карта -->
+  <script defer="defer" src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript"></script>
+  <!--Маска формы input-ов. В Галпе лучше ссылками ставит. У Сборки vendor.js не воспринимает.-->
+  <!-- <script defer="defer" src="vendor/inputmask.min.js"></script> -->
+  <script src="https://rawcdn.githack.com/RobinHerbots/Inputmask/a95afe64e7467eb14eb8aa8ccbfb6340a46fb8e3/dist/inputmask.min.js"></script>
+  <!--Валидатор input-ов. В Галпе лучше ссылками ставит. У Сборки vendor.js не воспринимает.-->
+  <!-- <script defer="defer" src="vendor/just-validate.js"></script> -->
+  <script src="https://rawcdn.githack.com/horprogs/Just-validate/7661936417e8aaad0e059291890c68a6bf473f6b/dist/js/just-validate.min.js"></script>
+  <title>Елочка, гори!</title>
+  <link rel="preload" href="fonts/PT_Sans-Web-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/PT_Sans-Web-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/MyriadPro-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/vendor.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script defer src="js/main.js"></script>
+  <script>
+    // для Базы данных timeweb.ru
+    const formJs = document.querySelector('.form');
+    if (formJs) { // Обёртка if. Спасение Gulp-а от null в браузере
+      $(function () {
+        $('.form-button').on('click', function () {
+          let data = {
+            'name': $('[name="name"]').val(),
+            'tel': $('[name="tel"]').val(),
+            'email': $('[name="email"]').val(),
+            'message': $('[name="message"]').val()
+          };
+          $.post('mail.php', data, function (response) {
+            if (response == 1) {
+              $('[name="name"]').val('');
+              $('[name="tel"]').val('');
+              $('[name="email"]').val('');
+              $('[name="message"]').val('');
+            }
+          })
+
+          return false;
+        });
+      });
+    };  
+  </script>
+</head>
+  <body class="page__body">
+    <div class="site-container"><!-- Типа wrapper -->
+      <h1 class="visually-hidden">Я для семантики</h1>
+      <header class="header">
+  <div class="header__container header__container_margin">
+    <!-- Шаблон микс pattern-1440px -->
+    <div class="header__pattern pattern">
+      <a class="pattern__logo" href="#">
+        <img class="pattern__logo-img" src="img/logo.svg" alt="Логотип Ёлочка">
+        <div class="pattern__logo-block">
+          <h2 class="pattern__h2">Елочка, гори!</h2>
+          <p class="pattern__descMyriad desc">
+            Производство искуственных елок и украшений
+          </p>
+        </div>
+      </a>
+      <div class="pattern__contacts">
+        <div class="pattern__contact">
+          <p class="pattern__desc desc">
+            Есть вопросы? Звоните!
+          </p>
+          <div class="pattern__block">
+            <a class="pattern__link" href="tel:88002004017">8 (800) 200-40-17</a>
+            <a class="pattern__link" href="tel:74994041431">+7 499 404-14-31</a>
+          </div>
+        </div>
+        <div class="pattern__grid515">
+          <a class="pattern__linkMail" href="mailto:info@elockagori.ru">info@elockagori.ru</a>
+          <a class="pattern__linkBtn btn" href="tel:88002004017">ЗАКАЗАТЬ ЗВОНОК</a>
+        </div>
+      </div>
+    </div>
+    <!-- // Шаблон микс pattern-1440px -->
+  </div>
+  <div class="header__block">
+    <div class="header__container">
+      <button class="header__burger burger" id="burger">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </button>
+      <div class="header__menu menu" id="menu">
+        <nav class="header__nav">
+          <ul class="header__list">
+            <li class="header__item">
+              <a class="header__btn header__btn--active" href="index.html" aria-label="Ссылка">Искусственные
+                елки</a>
+            </li>
+            <li class="header__item">
+              <a class="header__btn " href="#" aria-label="Ссылка">Живые елки</a>
+            </li>
+            <li class="header__item">
+              <a class="header__btn " href="#" aria-label="Ссылка">Елочки из конфет</a>
+            </li>
+            <li class="header__item">
+              <a class="header__btn " href="#" aria-label="Ссылка">Украшение для елок</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <main class="main">
+        <!-- <picture>
+          <source srcset="img/cover.webp" type="image/webp">
+          <img loading="lazy" src="img/cover.jpg" class="image" width="300" height="300" alt="Обложка">
+        </picture> -->
+        <section class="hero">
+  <div class="hero__container">
+    <h2 class="hero__h2 h2 color-white255">
+      Используйте все возможности
+    </h2>
+    <h3 class="hero__h3 h3">
+      приближающегося праздника!
+    </h3>
+    <p class="hero__desc desc">
+      Закажите новогодний набор сейчас и получите дополнительную <span>скидку 15%</span> от оптовых цен!
+    </p>
+    <div class="hero__download">
+      <h4 class="hero__h4 h4">
+        Получи оптовые цены сейчас
+      </h4>
+      <form class="hero__form hero__form_js" action="mail.php" enctype="multipart/form-data" method="POST"
+        aria-label="Здесь вы можете оставить свои данные и скачать файл">
+        <input type="hidden" name="admin_email[]" value="lyaisan.333@yandex.ru">
+        <!--darki@yandex.ru-->
+        <input type="hidden" name="form_subject" value="Сообщение из сайта Ёлочка, скачали прайс">
+        <div class="hero__block">
+          <!--data здесь он обрабатывает плагин валидатор кода-->
+          <label class="hero__label" for="name">
+            <input class="hero__input" type="text" name="name" placeholder="Ваше имя" data-validate-field="name"
+              id="name" required aria-label="Введите ваше имя" maxlength="10">
+          </label>
+          <label class="hero__label" for="tel">
+            <input class="hero__input" type="tel" name="tel" placeholder="Ваш телефон" data-validate-field="tel"
+              data-validate-rules="phone" id="tel" aria-label="Введите ваш телефон">
+          </label>
+        </div>
+        <button class="hero__btn btn">Скачать прайс</button>
+      </form>
+      <div class="hero__сhristmasTree modal-сhristmasTree hero__сhristmasTree_js">
+        <div class="hero__сhristmasTree-sps modal-сhristmasTree-sps hero__сhristmasTree-sps_js">
+          <div class="hero__before modal-before">
+            <button class="hero__modal-close modal-close hero__modal-close_js" title="Закрыть">
+              ✖
+            </button>
+            <a class="hero__btn btn" href="img/land.jpg" download>Скачать прайс</a>
+          </div>
+        </div>
+      </div>
+      <!--Модалка-hero__сhristmasTree-->
+    </div>
+  </div>
+</section>
+        <section class="about">
+  <div class="about__container">
+    <h2 class="about__h2 h2">
+      О нас
+    </h2>
+    <ul class="about__list">
+      <li class="about__item">
+        <div class="about__img">
+          <img src="img/icon-about/about-01.png" alt="icon-1">
+        </div>
+        <div class="about__info">
+          <h3 class="about__h3 h3">
+            Мы производители
+          </h3>
+          <p class="about__desc desc">
+            Вы получите гарантию лучших цен
+          </p>
+        </div>
+      </li>
+      <li class="about__item">
+        <div class="about__img">
+          <img src="img/icon-about/about-02.png" alt="icon-2">
+        </div>
+        <div class="about__info">
+          <h3 class="about__h3 h3">
+            Бесплатная доставка
+          </h3>
+          <p class="about__desc desc">
+            по всей России
+          </p>
+        </div>
+      </li>
+      <li class="about__item">
+        <div class="about__img">
+          <img src="img/icon-about/about-03.png" alt="icon-3">
+        </div>
+        <div class="about__info">
+          <h3 class="about__h3 h3">
+            Ниже оптовых цен
+          </h3>
+          <p class="about__desc desc">
+            конкурентов на 17-23%
+          </p>
+        </div>
+      </li>
+      <li class="about__item">
+        <div class="about__img">
+          <img src="img/icon-about/about-04.png" alt="icon-4">
+        </div>
+        <div class="about__info">
+          <h3 class="about__h3 h3">
+            163000 семей
+          </h3>
+          <p class="about__desc about__desc_padding desc">
+            встретили 2015 год с нами
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+        <section class="buy">
+  <div class="buy__container">
+    <h2 class="buy__h2 h2 color-white255">
+      Закажите до 10 ноября
+    </h2>
+    <p class="buy__desc buy__desc_1920 desc color-white255">
+      на сумму от 100 000 рублей и получите дополнительную скидку 15%
+    </p>
+    <p class="buy__desc buy__desc_474 desc color-white255">
+      на сумму от 100 000 рублей и получите дополнительную скидку 15%
+    </p>
+    <h3 class="buy__h3 h3 color-white255">
+      В декабре скидка 5%
+    </h3>
+    <form class="buy__form buy__form_js" action="mail.php" enctype="multipart/form-data" method="POST"
+      aria-label="Здесь вы можете оставить свои данные и скачать файл">
+      <input type="hidden" name="admin_email[]" value="lyaisan.333@yandex.ru">
+      <!--darki@yandex.ru-->
+      <input type="hidden" name="form_subject" value="Сообщение из сайта Ёлочка, Закажите до 10 ноября">
+      <div class="buy__block">
+        <!--data здесь он обрабатывает плагин валидатор кода-->
+        <label class="buy__label" for="nameZ">
+          <input class="buy__input" type="text" name="name" placeholder="Ваше имя" data-validate-field="name"
+            id="nameZ" required aria-label="Введите ваше имя" maxlength="10">
+        </label>
+        <label class="buy__label" for="telZ">
+          <input class="buy__input" type="tel" name="tel" placeholder="Ваш телефон" data-validate-field="tel"
+            data-validate-rules="phone" id="telZ" aria-label="Введите ваш телефон">
+        </label>
+      </div>
+      <button class="buy__btn btn">Оставить заявку</button>
+    </form>
+    <div class="buy__сhristmasTree modal-сhristmasTree buy__сhristmasTree_js">
+      <div class="buy__сhristmasTree-sps modal-сhristmasTree-sps buy__сhristmasTree-sps_js">
+        <div class="buy__before modal-before">
+          <button class="buy__modal-close modal-close buy__modal-close_js" title="Закрыть">
+            ✖
+          </button>
+          <h2 class="buy__modal-h2 modal-h2 h2">
+            Спасибо, мы с вами свяжемся!
+          </h2>
+        </div>
+      </div>
+    </div>
+    <!--Модалка-buy__сhristmasTree-->
+  </div>
+</section>
+        <section class="score">
+  <div class="score__container">
+    <div class="score__title color-white255">
+      <h2 class="visually-hidden">Я для семантики</h2>
+      <p>У нас уже заказали:</p> <span><span class="span">1</span><span class="span">5</span></span> человек
+    </div>
+  </div>
+</section>
+        <section class="set">
+  <div class="set__container">
+    <h2 class="set__h2 h2 color-white255">
+      Наши эффективные наборы
+    </h2>
+    <p class="set__desc desc">
+      Мы разработали для Вас готовые наборы на основе статистики наши
+    </p>
+    <!-- Лайфхак от Жеки. Шаблон микс и модификаторы (_) term-card -->
+    <div class="set__term-card term-card">
+      <ul class="term-card__list">
+        <li class="term-card__item sample-modalJs">
+          <article class="term-card__article">
+            <div class="term-card__size">
+              <h3 class="term-card__h3 sample-modalH3">Ёлка № 1</h3>
+              <div class="term-card__img-zoom">
+                <img src="img/icon-term/01.png" alt="Ёлка Zoom">
+              </div>
+              <ul class="term-card__sublist">
+                <li class="term-card__subitem">
+                  <div class="term-card__subimg">
+                    <img src="img/icon-term/02.png" alt="Ёлка Small">
+                  </div>
+                  <p class="term-card__subquantity">40 см. — 100 шт.</p>
+                </li>
+                <li class="term-card__subitem">
+                  <div class="term-card__subimg">
+                    <img src="img/icon-term/02.png" alt="Ёлка Small">
+                  </div>
+                  <p class="term-card__subquantity">80 см. — 50 шт.</p>
+                </li>
+                <li class="term-card__subitem">
+                  <div class="term-card__subimg">
+                    <img src="img/icon-term/02.png" alt="Ёлка Small">
+                  </div>
+                  <p class="term-card__subquantity">1500 см. — 30 шт.</p>
+                </li>
+                <li class="term-card__subitem">
+                  <div class="term-card__subimg">
+                    <img src="img/icon-term/02.png" alt="Ёлка Small">
+                  </div>
+                  <p class="term-card__subquantity">2000 см. — 50 шт.</p>
+                </li>
+                <li class="term-card__subitem subitem">
+                  <ul class="subitem__list subitem__list_ordNone1920">
+                    <li class="subitem__item">Срок реализации — <strong>1 месяц</strong></li>
+                    <li class="subitem__item">Ваша закупка — <strong>1 месяц</strong></li>
+                    <li class="subitem__item">Ваша закупка — <strong>1 месяц</strong></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="subitem">
+              <ul class="term-card__sublist subitem__list subitem__list_ordNoneOrd">
+                <li class="subitem__item">Срок реализации — <strong>1 месяц</strong></li>
+                <li class="subitem__item">Ваша закупка — <strong>1 месяц</strong></li>
+                <li class="subitem__item">Ваша закупка — <strong>1 месяц</strong></li>
+              </ul>
+            </div>
+            <button class="term-card__button btn  sample-btnJs" data-modal="order"
+              aria-label="Нажмите чтобы оставить заявку">Оставить заявку</button>
+          </article>
+        </li>
+        <li class="term-card__item sample-modalJs">
+          <article class="term-card__article">
+            <div class="term-card__size">
+              <h3 class="term-card__h3 sample-modalH3">Ёлка № 2</h3>
+              <div class="term-card__img-zoom">
+                <img src="img/icon-term/01.png" alt="Ёлка Zoom">
+              </div>
+              <ul class="term-card__sublist">
+                <li class="term-card__subitem">
+                  <div class="term-card__subimg">
+                    <img src="img/icon-term/02.png" alt="Ёлка Small">
+                  </div>
+                  <p class="term-card__subquantity">40 см. — 100 шт.</p>
+                </li>
+                <li class="term-card__subitem">
+                  <div class="term-card__subimg">
+                    <img src="img/icon-term/02.png" alt="Ёлка Small">
+                  </div>
+                  <p class="term-card__subquantity">80 см. — 50 шт.</p>
+                </li>
+                <li class="term-card__subitem">
+                  <div class="term-card__subimg">
+                    <img src="img/icon-term/02.png" alt="Ёлка Small">
+                  </div>
+                  <p class="term-card__subquantity">1500 см. — 30 шт.</p>
+                </li>
+                <li class="term-card__subitem">
+                  <div class="term-card__subimg">
+                    <img src="img/icon-term/02.png" alt="Ёлка Small">
+                  </div>
+                  <p class="term-card__subquantity">2000 см. — 50 шт.</p>
+                </li>
+                <li class="term-card__subitem subitem">
+                  <ul class="subitem__list subitem__list_ordNone1920">
+                    <li class="subitem__item">Срок реализации — <strong>1 месяц</strong></li>
+                    <li class="subitem__item">Ваша закупка — <strong>1 месяц</strong></li>
+                    <li class="subitem__item">Ваша закупка — <strong>1 месяц</strong></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="subitem">
+              <ul class="term-card__sublist subitem__list subitem__list_ordNoneOrd">
+                <li class="subitem__item">Срок реализации — <strong>1 месяц</strong></li>
+                <li class="subitem__item">Ваша закупка — <strong>1 месяц</strong></li>
+                <li class="subitem__item">Ваша закупка — <strong>1 месяц</strong></li>
+              </ul>
+            </div>
+            <button class="term-card__button btn  sample-btnJs" data-modal="order"
+              aria-label="Нажмите чтобы оставить заявку">Оставить заявку</button>
+          </article>
+        </li>
+      </ul>
+    </div>
+    <!-- // Лайфхак от Жеки. Шаблон микс и модификаторы (_) term-card -->
+  </div>
+</section>
+        <section class="reviews">
+  <div class="reviews__container">
+    <h2 class="reviews__h2 h2">
+      Отзывы о нас
+    </h2>
+    <ul class="reviews__list">
+      <li class="reviews__item sample-modalJs">
+        <article class="reviews__article">
+          <h3 class="reviews__h3 sample-modalH3">Отзыв № 1</h3>
+          <!-- reviews__orld чтобы в модалку перешли стили grid -->
+          <div class="reviews__orld">
+            <div class="reviews__img">
+              <img src="img/adam.png" alt="фото автора отзыва">
+            </div>
+            <div class="reviews__info">
+              <ul class="reviews__sublist">
+                <li class="reviews__subitem">Имя:.............</li>
+                <li class="reviews__subitem">Заказывал:.............</li>
+                <li class="reviews__subitem">Сумма заказа:..........</li>
+              </ul>
+              <p class="reviews__desc desc">
+                Lorem Ipsum это текст-«рыба», часто используемый в печати
+                и вэб-дизайне. Lorem Ipsum является стандартной «рыбой» для текстов
+                на латинице с начала XVI века. В то время некий безымянный
+                печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для
+                распечатки  образцов
+              </p>
+            </div>
+          </div>
+          <button class="reviews__button btn btn_green  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы Заказать этот же набор">
+            Заказать этот же набор
+          </button>
+        </article>
+      </li>
+      <li class="reviews__item sample-modalJs">
+        <article class="reviews__article">
+          <h3 class="reviews__h3 sample-modalH3">Отзыв № 2</h3>
+          <!-- reviews__orld чтобы в модалку перешли стили grid -->
+          <div class="reviews__orld">
+            <div class="reviews__img">
+              <img src="img/adam.png" alt="фото автора отзыва">
+            </div>
+            <div class="reviews__info">
+              <ul class="reviews__sublist">
+                <li class="reviews__subitem">Имя:.............</li>
+                <li class="reviews__subitem">Заказывал:.............</li>
+                <li class="reviews__subitem">Сумма заказа:..........</li>
+              </ul>
+              <p class="reviews__desc desc">
+                Lorem Ipsum это текст-«рыба», часто используемый в печати
+                и вэб-дизайне. Lorem Ipsum является стандартной «рыбой» для текстов
+                на латинице с начала XVI века. В то время некий безымянный
+                печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для
+                распечатки  образцов
+              </p>
+            </div>
+          </div>
+          <button class="reviews__button btn btn_green  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы Заказать этот же набор">
+            Заказать этот же набор
+          </button>
+        </article>
+      </li>
+      <li class="reviews__item sample-modalJs">
+        <article class="reviews__article">
+          <h3 class="reviews__h3 sample-modalH3">Отзыв № 3</h3>
+          <!-- reviews__orld чтобы в модалку перешли стили grid -->
+          <div class="reviews__orld">
+            <div class="reviews__img">
+              <img src="img/adam.png" alt="фото автора отзыва">
+            </div>
+            <div class="reviews__info">
+              <ul class="reviews__sublist">
+                <li class="reviews__subitem">Имя:.............</li>
+                <li class="reviews__subitem">Заказывал:.............</li>
+                <li class="reviews__subitem">Сумма заказа:..........</li>
+              </ul>
+              <p class="reviews__desc desc">
+                Lorem Ipsum это текст-«рыба», часто используемый в печати
+                и вэб-дизайне. Lorem Ipsum является стандартной «рыбой» для текстов
+                на латинице с начала XVI века. В то время некий безымянный
+                печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для
+                распечатки  образцов
+              </p>
+            </div>
+          </div>
+          <button class="reviews__button btn btn_green  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы Заказать этот же набор">
+            Заказать этот же набор
+          </button>
+        </article>
+      </li>
+      <li class="reviews__item sample-modalJs">
+        <article class="reviews__article">
+          <h3 class="reviews__h3 sample-modalH3">Отзыв № 4</h3>
+          <!-- reviews__orld чтобы в модалку перешли стили grid -->
+          <div class="reviews__orld">
+            <div class="reviews__img">
+              <img src="img/adam.png" alt="фото автора отзыва">
+            </div>
+            <div class="reviews__info">
+              <ul class="reviews__sublist">
+                <li class="reviews__subitem">Имя:.............</li>
+                <li class="reviews__subitem">Заказывал:.............</li>
+                <li class="reviews__subitem">Сумма заказа:..........</li>
+              </ul>
+              <p class="reviews__desc desc">
+                Lorem Ipsum это текст-«рыба», часто используемый в печати
+                и вэб-дизайне. Lorem Ipsum является стандартной «рыбой» для текстов
+                на латинице с начала XVI века. В то время некий безымянный
+                печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для
+                распечатки  образцов
+              </p>
+            </div>
+          </div>
+          <button class="reviews__button btn btn_green  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы Заказать этот же набор">
+            Заказать этот же набор
+          </button>
+        </article>
+      </li>
+    </ul>
+  </div>
+</section>
+        <section class="production">
+  <div class="production__container">
+    <h2 class="production__h2 h2">
+      Наше производство
+    </h2>
+    <ul class="production__list">
+      <li class="production__item">
+        <div class="production__img">
+          <img src="img/icon-production/production-01.jpg" alt="Картинка-1">
+        </div>
+        <p class="production__desc desc">
+          Контроль качества продукции
+        </p>
+      </li>
+      <li class="production__item">
+        <div class="production__img">
+          <img src="img/icon-production/production-02.jpg" alt="Картинка-2">
+        </div>
+        <p class="production__desc desc">
+          Пример выкладки
+        </p>
+      </li>
+      <li class="production__item">
+        <div class="production__img">
+          <img src="img/icon-production/production-03.jpg" alt="Картинка-3">
+        </div>
+        <p class="production__desc desc">
+          Сопутствующие товары
+        </p>
+      </li>
+    </ul>
+  </div>
+</section>
+        <section class="artificial">
+  <div class="artificial__container">
+    <h2 class="artificial__h2 h2 color-white255">
+      Каталог искусственных елок
+    </h2>
+    <div class="artificial__card template-card">
+      <ul class="template-card__list">
+        <li class="template-card__item sample-modalJs">
+          <article class="template-card__article">
+            <h3 class="template-card__h3 sample-modalH3">
+              Искусственная елка № 1
+            </h3>
+            <div class="template-card__orld">
+              <div class="template-card__img">
+                <img src="img/danish.jpg" alt="Датская ёдка">
+              </div>
+              <div class="template-card__info">
+                <h4 class="template-card__h4 h4">
+                  Датская ёлка (1-1,25 метров)
+                </h4>
+                <p class="template-card__desc desc">
+                  Небольшое описание елок на 2 строки.
+                </p>
+                <ul class="template-card__sublist">
+                  <li class="template-card__subitem">
+                    Цена за 10 шт. — 1 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 50 шт. — 5 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 100 шт. — 11 500 руб.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="template-card__button btn  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы оставить заявку">
+              оставить заявку
+            </button>
+          </article>
+        </li>
+        <li class="template-card__item sample-modalJs">
+          <article class="template-card__article">
+            <h3 class="template-card__h3 sample-modalH3">
+              Искусственная елка № 2
+            </h3>
+            <div class="template-card__orld">
+              <div class="template-card__img">
+                <img src="img/danish.jpg" alt="Датская ёдка">
+              </div>
+              <div class="template-card__info">
+                <h4 class="template-card__h4 h4">
+                  Датская ёлка (1-1,25 метров)
+                </h4>
+                <p class="template-card__desc desc">
+                  Небольшое описание елок на 2 строки.
+                </p>
+                <ul class="template-card__sublist">
+                  <li class="template-card__subitem">
+                    Цена за 10 шт. — 1 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 50 шт. — 5 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 100 шт. — 11 500 руб.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="template-card__button btn  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы оставить заявку">
+              оставить заявку
+            </button>
+          </article>
+        </li>
+        <li class="template-card__item sample-modalJs">
+          <article class="template-card__article">
+            <h3 class="template-card__h3 sample-modalH3">
+              Искусственная елка № 3
+            </h3>
+            <div class="template-card__orld">
+              <div class="template-card__img">
+                <img src="img/danish.jpg" alt="Датская ёдка">
+              </div>
+              <div class="template-card__info">
+                <h4 class="template-card__h4 h4">
+                  Датская ёлка (1-1,25 метров)
+                </h4>
+                <p class="template-card__desc desc">
+                  Небольшое описание елок на 2 строки.
+                </p>
+                <ul class="template-card__sublist">
+                  <li class="template-card__subitem">
+                    Цена за 10 шт. — 1 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 50 шт. — 5 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 100 шт. — 11 500 руб.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="template-card__button btn  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы оставить заявку">
+              оставить заявку
+            </button>
+          </article>
+        </li>
+        <li class="template-card__item sample-modalJs">
+          <article class="template-card__article">
+            <h3 class="template-card__h3 sample-modalH3">
+              Искусственная елка № 4
+            </h3>
+            <div class="template-card__orld">
+              <div class="template-card__img">
+                <img src="img/danish.jpg" alt="Датская ёдка">
+              </div>
+              <div class="template-card__info">
+                <h4 class="template-card__h4 h4">
+                  Датская ёлка (1-1,25 метров)
+                </h4>
+                <p class="template-card__desc desc">
+                  Небольшое описание елок на 2 строки.
+                </p>
+                <ul class="template-card__sublist">
+                  <li class="template-card__subitem">
+                    Цена за 10 шт. — 1 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 50 шт. — 5 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 100 шт. — 11 500 руб.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="template-card__button btn  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы оставить заявку">
+              оставить заявку
+            </button>
+          </article>
+        </li>
+        <li class="template-card__item sample-modalJs">
+          <article class="template-card__article">
+            <h3 class="template-card__h3 sample-modalH3">
+              Искусственная елка № 5
+            </h3>
+            <div class="template-card__orld">
+              <div class="template-card__img">
+                <img src="img/danish.jpg" alt="Датская ёдка">
+              </div>
+              <div class="template-card__info">
+                <h4 class="template-card__h4 h4">
+                  Датская ёлка (1-1,25 метров)
+                </h4>
+                <p class="template-card__desc desc">
+                  Небольшое описание елок на 2 строки.
+                </p>
+                <ul class="template-card__sublist">
+                  <li class="template-card__subitem">
+                    Цена за 10 шт. — 1 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 50 шт. — 5 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 100 шт. — 11 500 руб.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="template-card__button btn  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы оставить заявку">
+              оставить заявку
+            </button>
+          </article>
+        </li>
+        <li class="template-card__item sample-modalJs">
+          <article class="template-card__article">
+            <h3 class="template-card__h3 sample-modalH3">
+              Искусственная елка № 6
+            </h3>
+            <div class="template-card__orld">
+              <div class="template-card__img">
+                <img src="img/danish.jpg" alt="Датская ёдка">
+              </div>
+              <div class="template-card__info">
+                <h4 class="template-card__h4 h4">
+                  Датская ёлка (1-1,25 метров)
+                </h4>
+                <p class="template-card__desc desc">
+                  Небольшое описание елок на 2 строки.
+                </p>
+                <ul class="template-card__sublist">
+                  <li class="template-card__subitem">
+                    Цена за 10 шт. — 1 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 50 шт. — 5 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 100 шт. — 11 500 руб.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="template-card__button btn  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы оставить заявку">
+              оставить заявку
+            </button>
+          </article>
+        </li>
+        <li class="template-card__item sample-modalJs">
+          <article class="template-card__article">
+            <h3 class="template-card__h3 sample-modalH3">
+              Искусственная елка № 7
+            </h3>
+            <div class="template-card__orld">
+              <div class="template-card__img">
+                <img src="img/danish.jpg" alt="Датская ёдка">
+              </div>
+              <div class="template-card__info">
+                <h4 class="template-card__h4 h4">
+                  Датская ёлка (1-1,25 метров)
+                </h4>
+                <p class="template-card__desc desc">
+                  Небольшое описание елок на 2 строки.
+                </p>
+                <ul class="template-card__sublist">
+                  <li class="template-card__subitem">
+                    Цена за 10 шт. — 1 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 50 шт. — 5 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 100 шт. — 11 500 руб.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="template-card__button btn  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы оставить заявку">
+              оставить заявку
+            </button>
+          </article>
+        </li>
+        <li class="template-card__item sample-modalJs">
+          <article class="template-card__article">
+            <h3 class="template-card__h3 sample-modalH3">
+              Искусственная елка № 8
+            </h3>
+            <div class="template-card__orld">
+              <div class="template-card__img">
+                <img src="img/danish.jpg" alt="Датская ёдка">
+              </div>
+              <div class="template-card__info">
+                <h4 class="template-card__h4 h4">
+                  Датская ёлка (1-1,25 метров)
+                </h4>
+                <p class="template-card__desc desc">
+                  Небольшое описание елок на 2 строки.
+                </p>
+                <ul class="template-card__sublist">
+                  <li class="template-card__subitem">
+                    Цена за 10 шт. — 1 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 50 шт. — 5 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 100 шт. — 11 500 руб.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="template-card__button btn  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы оставить заявку">
+              оставить заявку
+            </button>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+        <section class="alive">
+  <div class="alive__container">
+    <h2 class="alive__h2 h2">
+      Каталог живых елок
+    </h2>
+    <div class="alive__card template-card">
+      <ul class="template-card__list">
+        <li class="template-card__item sample-modalJs">
+          <article class="template-card__article">
+            <h3 class="template-card__h3 sample-modalH3">
+              Живаяая елка № 1
+            </h3>
+            <div class="template-card__orld">
+              <div class="template-card__img">
+                <img src="img/danish.jpg" alt="Датская ёдка">
+              </div>
+              <div class="template-card__info">
+                <h4 class="template-card__h4 h4">
+                  Датская ёлка (1-1,25 метров)
+                </h4>
+                <p class="template-card__desc desc">
+                  Небольшое описание елок на 2 строки.
+                </p>
+                <ul class="template-card__sublist">
+                  <li class="template-card__subitem">
+                    Цена за 10 шт. — 1 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 50 шт. — 5 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 100 шт. — 11 500 руб.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="template-card__button btn  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы оставить заявку">
+              оставить заявку
+            </button>
+          </article>
+        </li>
+        <li class="template-card__item sample-modalJs">
+          <article class="template-card__article">
+            <h3 class="template-card__h3 sample-modalH3">
+              Живаяая елка № 2
+            </h3>
+            <div class="template-card__orld">
+              <div class="template-card__img">
+                <img src="img/danish.jpg" alt="Датская ёдка">
+              </div>
+              <div class="template-card__info">
+                <h4 class="template-card__h4 h4">
+                  Датская ёлка (1-1,25 метров)
+                </h4>
+                <p class="template-card__desc desc">
+                  Небольшое описание елок на 2 строки.
+                </p>
+                <ul class="template-card__sublist">
+                  <li class="template-card__subitem">
+                    Цена за 10 шт. — 1 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 50 шт. — 5 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 100 шт. — 11 500 руб.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="template-card__button btn  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы оставить заявку">
+              оставить заявку
+            </button>
+          </article>
+        </li>
+        <li class="template-card__item sample-modalJs">
+          <article class="template-card__article">
+            <h3 class="template-card__h3 sample-modalH3">
+              Живаяая елка № 3
+            </h3>
+            <div class="template-card__orld">
+              <div class="template-card__img">
+                <img src="img/danish.jpg" alt="Датская ёдка">
+              </div>
+              <div class="template-card__info">
+                <h4 class="template-card__h4 h4">
+                  Датская ёлка (1-1,25 метров)
+                </h4>
+                <p class="template-card__desc desc">
+                  Небольшое описание елок на 2 строки.
+                </p>
+                <ul class="template-card__sublist">
+                  <li class="template-card__subitem">
+                    Цена за 10 шт. — 1 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 50 шт. — 5 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 100 шт. — 11 500 руб.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="template-card__button btn  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы оставить заявку">
+              оставить заявку
+            </button>
+          </article>
+        </li>
+        <li class="template-card__item sample-modalJs">
+          <article class="template-card__article">
+            <h3 class="template-card__h3 sample-modalH3">
+              Живаяая елка № 4
+            </h3>
+            <div class="template-card__orld">
+              <div class="template-card__img">
+                <img src="img/danish.jpg" alt="Датская ёдка">
+              </div>
+              <div class="template-card__info">
+                <h4 class="template-card__h4 h4">
+                  Датская ёлка (1-1,25 метров)
+                </h4>
+                <p class="template-card__desc desc">
+                  Небольшое описание елок на 2 строки.
+                </p>
+                <ul class="template-card__sublist">
+                  <li class="template-card__subitem">
+                    Цена за 10 шт. — 1 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 50 шт. — 5 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 100 шт. — 11 500 руб.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="template-card__button btn  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы оставить заявку">
+              оставить заявку
+            </button>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+        <section class="candies">
+  <div class="candies__container">
+    <h2 class="candies__h2 h2 color-white255">
+      Каталог елочек из конфет
+    </h2>
+    <div class="candies__card template-card">
+      <ul class="template-card__list">
+        <li class="template-card__item sample-modalJs">
+          <article class="template-card__article">
+            <h3 class="template-card__h3 sample-modalH3">
+              Елочка из конфет № 1
+            </h3>
+            <div class="template-card__orld">
+              <div class="template-card__img">
+                <img src="img/danish.jpg" alt="Датская ёдка">
+              </div>
+              <div class="template-card__info">
+                <h4 class="template-card__h4 h4">
+                  Датская ёлка (1-1,25 метров)
+                </h4>
+                <p class="template-card__desc desc">
+                  Небольшое описание елок на 2 строки.
+                </p>
+                <ul class="template-card__sublist">
+                  <li class="template-card__subitem">
+                    Цена за 10 шт. — 1 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 50 шт. — 5 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 100 шт. — 11 500 руб.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="template-card__button btn  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы оставить заявку">
+              оставить заявку
+            </button>
+          </article>
+        </li>
+        <li class="template-card__item sample-modalJs">
+          <article class="template-card__article">
+            <h3 class="template-card__h3 sample-modalH3">
+              Елочка из конфет № 2
+            </h3>
+            <div class="template-card__orld">
+              <div class="template-card__img">
+                <img src="img/danish.jpg" alt="Датская ёдка">
+              </div>
+              <div class="template-card__info">
+                <h4 class="template-card__h4 h4">
+                  Датская ёлка (1-1,25 метров)
+                </h4>
+                <p class="template-card__desc desc">
+                  Небольшое описание елок на 2 строки.
+                </p>
+                <ul class="template-card__sublist">
+                  <li class="template-card__subitem">
+                    Цена за 10 шт. — 1 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 50 шт. — 5 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 100 шт. — 11 500 руб.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="template-card__button btn  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы оставить заявку">
+              оставить заявку
+            </button>
+          </article>
+        </li>
+        <li class="template-card__item sample-modalJs">
+          <article class="template-card__article">
+            <h3 class="template-card__h3 sample-modalH3">
+              Елочка из конфет № 3
+            </h3>
+            <div class="template-card__orld">
+              <div class="template-card__img">
+                <img src="img/danish.jpg" alt="Датская ёдка">
+              </div>
+              <div class="template-card__info">
+                <h4 class="template-card__h4 h4">
+                  Датская ёлка (1-1,25 метров)
+                </h4>
+                <p class="template-card__desc desc">
+                  Небольшое описание елок на 2 строки.
+                </p>
+                <ul class="template-card__sublist">
+                  <li class="template-card__subitem">
+                    Цена за 10 шт. — 1 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 50 шт. — 5 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 100 шт. — 11 500 руб.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="template-card__button btn  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы оставить заявку">
+              оставить заявку
+            </button>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+        <section class="decoration">
+  <div class="decoration__container">
+    <h2 class="decoration__h2 h2">
+      Каталог украшений для елок
+    </h2>
+    <div class="decoration__card template-card">
+      <ul class="template-card__list">
+        <li class="template-card__item sample-modalJs">
+          <article class="template-card__article">
+            <h3 class="template-card__h3 sample-modalH3">
+              Украшения для елок № 1
+            </h3>
+            <div class="template-card__orld">
+              <div class="template-card__img">
+                <img src="img/danish.jpg" alt="Датская ёдка">
+              </div>
+              <div class="template-card__info">
+                <h4 class="template-card__h4 h4">
+                  Датская ёлка (1-1,25 метров)
+                </h4>
+                <p class="template-card__desc desc">
+                  Небольшое описание елок на 2 строки.
+                </p>
+                <ul class="template-card__sublist">
+                  <li class="template-card__subitem">
+                    Цена за 10 шт. — 1 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 50 шт. — 5 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 100 шт. — 11 500 руб.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="template-card__button btn  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы оставить заявку">
+              оставить заявку
+            </button>
+          </article>
+        </li>
+        <li class="template-card__item sample-modalJs">
+          <article class="template-card__article">
+            <h3 class="template-card__h3 sample-modalH3">
+              Украшения для елок № 2
+            </h3>
+            <div class="template-card__orld">
+              <div class="template-card__img">
+                <img src="img/danish.jpg" alt="Датская ёдка">
+              </div>
+              <div class="template-card__info">
+                <h4 class="template-card__h4 h4">
+                  Датская ёлка (1-1,25 метров)
+                </h4>
+                <p class="template-card__desc desc">
+                  Небольшое описание елок на 2 строки.
+                </p>
+                <ul class="template-card__sublist">
+                  <li class="template-card__subitem">
+                    Цена за 10 шт. — 1 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 50 шт. — 5 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 100 шт. — 11 500 руб.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="template-card__button btn  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы оставить заявку">
+              оставить заявку
+            </button>
+          </article>
+        </li>
+        <li class="template-card__item sample-modalJs">
+          <article class="template-card__article">
+            <h3 class="template-card__h3 sample-modalH3">
+              Украшения для елок № 3
+            </h3>
+            <div class="template-card__orld">
+              <div class="template-card__img">
+                <img src="img/danish.jpg" alt="Датская ёдка">
+              </div>
+              <div class="template-card__info">
+                <h4 class="template-card__h4 h4">
+                  Датская ёлка (1-1,25 метров)
+                </h4>
+                <p class="template-card__desc desc">
+                  Небольшое описание елок на 2 строки.
+                </p>
+                <ul class="template-card__sublist">
+                  <li class="template-card__subitem">
+                    Цена за 10 шт. — 1 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 50 шт. — 5 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 100 шт. — 11 500 руб.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="template-card__button btn  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы оставить заявку">
+              оставить заявку
+            </button>
+          </article>
+        </li>
+        <li class="template-card__item sample-modalJs">
+          <article class="template-card__article">
+            <h3 class="template-card__h3 sample-modalH3">
+              Украшения для елок № 4
+            </h3>
+            <div class="template-card__orld">
+              <div class="template-card__img">
+                <img src="img/danish.jpg" alt="Датская ёдка">
+              </div>
+              <div class="template-card__info">
+                <h4 class="template-card__h4 h4">
+                  Датская ёлка (1-1,25 метров)
+                </h4>
+                <p class="template-card__desc desc">
+                  Небольшое описание елок на 2 строки.
+                </p>
+                <ul class="template-card__sublist">
+                  <li class="template-card__subitem">
+                    Цена за 10 шт. — 1 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 50 шт. — 5 500 руб.
+                  </li>
+                  <li class="template-card__subitem">
+                    Цена за 100 шт. — 11 500 руб.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <button class="template-card__button btn  sample-btnJs" data-modal="order" aria-label="Нажмите чтобы оставить заявку">
+              оставить заявку
+            </button>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+        <section class="contacts">
+  <div class="contacts__modal">
+    <button class="contacts__close contacts__btn" id="contacts__close-id" type="submit" aria-label="Свернуть">
+      <span></span>
+      <span></span>
+    </button>
+    <h3 class="contacts__h3 h3">Контакты</h3>
+    <address class="contacts__address">
+      <div class="contacts__block">
+        <svg width="30px" height="30px" viewbox="-4 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(-104.000000, -411.000000)">
+            <path d="M116,426 C114.343,426 113,424.657 113,423 C113,421.343 114.343,420 116,420 C117.657,420 119,421.343 119,423 C119,424.657 117.657,426 116,426 L116,426 Z M116,418 C113.239,418 111,420.238 111,423 C111,425.762 113.239,428 116,428 C118.761,428 121,425.762 121,423 C121,420.238 118.761,418 116,418 L116,418 Z M116,440 C114.337,440.009 106,427.181 106,423 C106,417.478 110.477,413 116,413 C121.523,413 126,417.478 126,423 C126,427.125 117.637,440.009 116,440 L116,440 Z M116,411 C109.373,411 104,416.373 104,423 C104,428.018 114.005,443.011 116,443 C117.964,443.011 128,427.95 128,423 C128,416.373 122.627,411 116,411 L116,411 Z" fill="#579f2c"></path>
+          </g>
+        </svg>
+        <p class="contacts__desc">Москва, Павелецкая наб., дом 2, строение 5 </p>
+      </div>
+      <div class="contacts__block">
+        <img src="img/icon-contacts/contacts-02.png" alt="time">
+        <p class="contacts__desc">Работаем без выходных с 9:00 до 18:00 </p>
+      </div>
+      <a class="contacts__link" href="tel:+7(499)13-644-76">
+        <svg width="30px" height="30px" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(-256.000000, -307.000000)">
+            <path d="M285.635,315.737 C283.935,318.967 280.16,323.939 277,327.218 C273.357,331.158 264.769,336.546 264.769,336.546 C264.106,336.894 262.266,336.92 261.76,336.415 L259.929,334.589 C259.551,333.957 259.381,333.225 259.929,332.763 L263.592,330.023 C264.212,329.604 264.917,329.519 265.423,330.023 L267.68,332.273 C268.211,331.9 276.689,326.344 281.405,318.695 L279.094,316.39 C278.588,315.886 278.674,315.182 279.094,314.563 L281.841,310.911 C282.347,310.236 283.167,310.406 283.672,310.911 L285.504,312.737 C286.222,313.411 286.014,314.982 285.635,315.737 L285.635,315.737 Z M287.073,311.433 L284.195,308.563 C283.401,307.77 282.112,307.77 281.317,308.563 L277,314.303 C276.341,315.274 276.206,316.38 277,317.173 L278.762,318.93 C277.456,320.68 275.888,322.588 274.123,324.348 C272.127,326.338 269.907,328.147 267.911,329.633 L266.208,327.936 C265.414,327.143 264.305,327.277 263.33,327.936 L257.574,332.241 C256.609,332.906 256.779,334.318 257.574,335.111 L260.452,337.98 C262.042,339.566 264.109,339.058 266.208,337.98 C266.208,337.98 272.561,334.424 278,329 C283.116,323.898 287.073,317.173 287.073,317.173 C287.898,314.91 288.663,313.018 287.073,311.433 L287.073,311.433 Z" fill="#579f2c"></path>
+          </g>
+        </svg>
+        <span class="contacts__spanPhone">8 (499) 136-44-76</span>
+      </a>
+    </address>
+  </div>
+  <div class="contacts__map" id="map" style="width: 100%; height: 430px"></div>
+</section>
+      </main>
+      <footer class="footer">
+  <div class="footer__container">
+    <!-- Шаблон микс pattern-1440px  -->
+    <div class="footer__pattern pattern">
+      <a class="pattern__logo" href="#">
+        <img class="pattern__logo-img" src="img/logo.svg" alt="Логотип Ёлочка">
+        <div class="pattern__logo-block">
+          <h2 class="pattern__h2">Елочка, гори!</h2>
+          <p class="pattern__descMyriad desc">
+            Производство искуственных елок и украшений
+          </p>
+        </div>
+      </a>
+      <div class="pattern__contacts">
+        <div class="pattern__contact">
+          <p class="pattern__desc desc">
+            Есть вопросы? Звоните!
+          </p>
+          <div class="pattern__block">
+            <a class="pattern__link" href="tel:88002004017">8 (800) 200-40-17</a>
+            <a class="pattern__link" href="tel:74994041431">+7 499 404-14-31</a>
+          </div>
+        </div>
+        <div class="pattern__grid515">
+          <a class="pattern__linkMail" href="mailto:info@elockagori.ru">info@elockagori.ru</a>
+          <a class="pattern__linkBtn btn" href="tel:88002004017">ЗАКАЗАТЬ ЗВОНОК</a>
+        </div>
+      </div>
+    </div>
+    <!-- // Шаблон микс pattern-1440px -->
+  </div>
+</footer>
+
+      <div class="modals">
+  <div class="modals__overlay"></div>
+  <!-- modal-Модальное окно СПАСИБО-шаблон -->
+  <div class="modals__thanks modals__thanks_js">
+    <div class="modals__sps modals__sps_js">
+      <div class="modals__before modal-before">
+        <button class="modals__close closeX closeX_js" title="Закрыть">
+          ✖
+        </button>
+        <h2 class="modals__h2 modal-text modal-h2 h2">
+          Товар будет отправлен на указанную Вами почту.
+        </h2>
+      </div>
+    </div>
+  </div>
+  <!-- // modal-Модальное окно СПАСИБО-шаблон -->
+  <div class="modal modal-order" data-modal-open="order" data-simplebar>
+    <button class="modal__close-mobile btn-reset for-mobile" aria-label="Закрыть окно" data-swipe-treshold="20"
+      data-swipe-timeout="500" data-swipe-ignore="false"></button>
+    <button class="modal__close closeX">x</button>
+    <h2 class="modal__h2 modal-text h2">Бронирование заказа</h2>
+    <div class="tariff"></div>
+    <form class="modal__form modal__form_js" action="mail.php" enctype="multipart/form-data" method="POST"
+      aria-label="Здесь Вы можете заказать товар">
+      <input type="hidden" name="admin_email[]" value="lyaisan.333@yandex.ru">
+      <!--darki@yandex.ru-->
+      <input type="hidden" name="admin_email[]" value="kussa90-03@mail.ru">
+      <input type="hidden" name="form_subject" value="Сообщение из сайта Ёлочка, заказ">
+      <div class="modal__block">
+        <!--data здесь он обрабатывает плагин валидатор кода-->
+        <label class="modal__label" for="nameZakaz">
+          <input class="modal__input" type="text" name="name" placeholder="Фамилия и Имя" data-validate-field="name"
+            id="nameZakaz" required="" aria-label="Введите ваше Фамилию и Имя" maxlength="20">
+        </label>
+        <label class="modal__label" for="telZakaz">
+          <input class="modal__input" type="tel" name="tel" placeholder="Ваш телефон" data-validate-field="tel"
+            data-validate-rules="phone" id="telZakaz" aria-label="Введите ваш телефон">
+        </label>
+        <label class="modal__label" for="emailZakaz">
+          <input class="modal__input" type="email" name="email" placeholder="Email" data-validate-field="email"
+            id="emailZakaz" aria-label="Введите вашу почту" maxlength="35">
+        </label>
+        <label class="modal__label" for="messageZakaz">
+          <span class="modal__label-descr"></span>
+          <textarea class="modal__textarea" name="message" id="messageZakaz" placeholder="Напишите через запятую: адрес места жительства, название товара, размер, количество." data-validate-field="text"></textarea>
+        </label>
+      </div>
+      <div class="modal__form-btn">
+        <button class="modal__button btn">Заказать</button>
+        <div class="modal__policy">
+          Нажимая на кнопку, вы соглашаетесь с нашей
+          <a href="https://rocket-telecom.ru/wp-content/uploads/2023/06/politika-v-otnoshenii-obrabotki-personalnyh-dannyh-rtcz.pdf?ysclid=lnygqc4a8t42508700"
+            target="_blank">политикой обработки персональных данных</a>
+          <!-- href="land.pdf" -->
+        </div>
+      </div>
+    </form>
+    <div class="modal__ord">
+      <!-- Инфо о Ёлке в модалке -->
+    </div>
+    <div class="modal__bottom">
+      <div class="">
+        <!-- <img src="/img/manager.png" aria-hidden="true" alt="Менеджер"> -->
+      </div>
+      <div class="modal__text">
+        Остались вопросы? Свяжитесь со мной любым удобным способом:
+        <a href="tel:88002004017">8 (800) 200-40-17</a> или <a href="mailto:info@.mail">info@.mail</a>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+  </body>
+
+</html>
