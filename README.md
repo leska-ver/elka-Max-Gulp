@@ -1,1 +1,12 @@
-# Мир без укронацистов!
+#Это проверка работоспособности библиотеки jQuery код:
+
+```
+
+
+<script type="text/javascript">
+  if (window.jQuery) alert("jQuery подключен");
+  else alert("jQuery не подключен");
+</script>
+
+```
+

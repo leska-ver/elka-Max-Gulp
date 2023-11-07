@@ -29,10 +29,10 @@
   <script defer="defer" src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
   <!-- Яндекс карта -->
   <script defer="defer" src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript"></script>
-  <!--Маска формы input-ов. В Галпе лучше ссылками ставит. У Сборки vendor.js не воспринимает.-->
+  <!--Маска формы input-ов. В Галпе лучше ссылками ставит. У Сборки vendor.js не воспринимает. Файлы в папке(vendor) работают и без них. Удалив их, беды не будет.-->
   <!-- <script defer="defer" src="vendor/inputmask.min.js"></script> -->
   <script src="https://rawcdn.githack.com/RobinHerbots/Inputmask/a95afe64e7467eb14eb8aa8ccbfb6340a46fb8e3/dist/inputmask.min.js"></script>
-  <!--Валидатор input-ов. В Галпе лучше ссылками ставит. У Сборки vendor.js не воспринимает.-->
+  <!--Валидатор input-ов. В Галпе лучше ссылками ставит. У Сборки vendor.js не воспринимает. Файлы в папке(vendor) работают и без них. Удалив их, беды не будет.-->
   <!-- <script defer="defer" src="vendor/just-validate.js"></script> -->
   <script src="https://rawcdn.githack.com/horprogs/Just-validate/7661936417e8aaad0e059291890c68a6bf473f6b/dist/js/just-validate.min.js"></script>
   <title>Елочка, гори!</title>
@@ -44,8 +44,8 @@
   <script defer src="js/main.js"></script>
   <script>
     // для Базы данных timeweb.ru
-    const formJs = document.querySelector('.form');
-    if (formJs) { // Обёртка if. Спасение Gulp-а от null в браузере
+    const formBaza = document.querySelector('.form');
+    if (formBaza) { // Обёртка if. Спасение Gulp-а от null в браузере
       $(function () {
         $('.form-button').on('click', function () {
           let data = {
@@ -157,7 +157,7 @@
         aria-label="Здесь вы можете оставить свои данные и скачать файл">
         <input type="hidden" name="admin_email[]" value="lyaisan.333@yandex.ru">
         <!--darki@yandex.ru-->
-        <input type="hidden" name="form_subject" value="Сообщение из сайта Ёлочка, скачали прайс">
+        <input type="hidden" name="form_subject" value="Сообщение из сайта Ёлочка, скачали прайс.(Gulp)">
         <div class="hero__block">
           <!--data здесь он обрабатывает плагин валидатор кода-->
           <label class="hero__label" for="name">
@@ -264,7 +264,7 @@
       aria-label="Здесь вы можете оставить свои данные и скачать файл">
       <input type="hidden" name="admin_email[]" value="lyaisan.333@yandex.ru">
       <!--darki@yandex.ru-->
-      <input type="hidden" name="form_subject" value="Сообщение из сайта Ёлочка, Закажите до 10 ноября">
+      <input type="hidden" name="form_subject" value="Сообщение из сайта Ёлочка, Закажите до 10 ноября.(Gulp)">
       <div class="buy__block">
         <!--data здесь он обрабатывает плагин валидатор кода-->
         <label class="buy__label" for="nameZ">
@@ -868,7 +868,7 @@
         <li class="template-card__item sample-modalJs">
           <article class="template-card__article">
             <h3 class="template-card__h3 sample-modalH3">
-              Живаяая елка № 1
+              Живая елка № 1
             </h3>
             <div class="template-card__orld">
               <div class="template-card__img">
@@ -902,7 +902,7 @@
         <li class="template-card__item sample-modalJs">
           <article class="template-card__article">
             <h3 class="template-card__h3 sample-modalH3">
-              Живаяая елка № 2
+              Живая елка № 2
             </h3>
             <div class="template-card__orld">
               <div class="template-card__img">
@@ -936,7 +936,7 @@
         <li class="template-card__item sample-modalJs">
           <article class="template-card__article">
             <h3 class="template-card__h3 sample-modalH3">
-              Живаяая елка № 3
+              Живая елка № 3
             </h3>
             <div class="template-card__orld">
               <div class="template-card__img">
@@ -970,7 +970,7 @@
         <li class="template-card__item sample-modalJs">
           <article class="template-card__article">
             <h3 class="template-card__h3 sample-modalH3">
-              Живаяая елка № 4
+              Живая елка № 4
             </h3>
             <div class="template-card__orld">
               <div class="template-card__img">
@@ -1358,7 +1358,7 @@
       <input type="hidden" name="admin_email[]" value="lyaisan.333@yandex.ru">
       <!--darki@yandex.ru-->
       <input type="hidden" name="admin_email[]" value="kussa90-03@mail.ru">
-      <input type="hidden" name="form_subject" value="Сообщение из сайта Ёлочка, заказ">
+      <input type="hidden" name="form_subject" value="Сообщение из сайта Ёлочка, заказ.(Gulp)">
       <div class="modal__block">
         <!--data здесь он обрабатывает плагин валидатор кода-->
         <label class="modal__label" for="nameZakaz">
