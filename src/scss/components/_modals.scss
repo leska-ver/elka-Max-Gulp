@@ -785,6 +785,10 @@ transition: .3s ease-in-out;
 }
 
 @include small-mobile {/*515*/ 
+
+}
+
+@include min-mobile {/*(min-width: 787px) and (max-width:1375px)*/ 
   .modal-order {
     position: relative;
     margin: 0 auto;

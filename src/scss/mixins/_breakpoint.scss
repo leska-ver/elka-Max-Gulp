@@ -35,3 +35,9 @@
     @content;
   }
 }
+
+@mixin min-mobile {
+  @media (min-width: (787px)) and (max-width: (1375px)) {
+    @content;
+  }
+}

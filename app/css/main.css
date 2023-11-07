@@ -970,6 +970,14 @@ textarea {
 }
 /* stylelint-disable */
 /***Шапка header-1920px***/
+.burger {
+  position: relative;
+  display: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
 .header {
   padding-top: 15px;
   max-width: 100%;
@@ -987,13 +995,6 @@ textarea {
   padding: 0;
   border: none;
   background-color: transparent;
-  cursor: pointer;
-}
-.header .burger {
-  position: relative;
-  display: none;
-  width: 40px;
-  height: 40px;
   cursor: pointer;
 }
 .header__nav {
@@ -3288,6 +3289,9 @@ textarea {
 }
 @media (max-width: 515px) {
   /*515*/
+}
+@media (min-width: 787px) and (max-width: 1375px) {
+  /*(min-width: 787px) and (max-width:1375px)*/
   .modal-order {
     position: relative;
     margin: 0 auto;
