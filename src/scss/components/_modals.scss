@@ -785,7 +785,10 @@ transition: .3s ease-in-out;
 }
 
 @include small-mobile {/*515*/ 
-
+  .modal-order .js-validate-error-label {
+    top: -14px;
+    font-size: 11px;
+  }
 }
 
 @include min-mobile {/*(min-width: 787px) and (max-width:1375px)*/ 
