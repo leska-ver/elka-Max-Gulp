@@ -785,8 +785,17 @@ transition: .3s ease-in-out;
 }
 
 @include small-mobile {/*515*/ 
+  .modal-order .modal__label:last-child {
+    margin-top: 12px;
+  }
+
   .modal-order .js-validate-error-label {
-    font-size: 9px;    
+    top: -14px;
+    font-size: 9px;
+  }
+
+  .modal-order .modal__label:last-child .js-validate-error-label {
+    top: -22px;
   }
 }
 
