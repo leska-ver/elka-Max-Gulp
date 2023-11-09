@@ -370,21 +370,21 @@ textarea {
     -moz-transition: borde .4s ease-in-out, color .4s ease-in-out;
     -o-transition: borde .4s ease-in-out, color .4s ease-in-out;
     transition: borde .4s ease-in-out, color .4s ease-in-out;
-  }
 
-  &__logo:focus {
-    outline: none;
-    border: 2px solid var(--color-limeade);
-    outline-offset: 8px;
-  }
+    &:focus {
+      outline: none;
+      border: 2px solid var(--color-limeade);
+      outline-offset: 8px;
+    }
 
-  &__logo:hover {
-    border: 2px dotted var(--color-limeadeA);
-    outline-offset: 8px;
-  }
+    &:hover {
+      border: 2px dotted var(--color-limeadeA);
+      outline-offset: 8px;
+    }
 
-  &__logo:active {
-    opacity: .7;
+    &:active {
+      opacity: .7;
+    }
   }
 
   &__h2 {
