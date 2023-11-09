@@ -106,10 +106,10 @@
   &__block {
     display: -ms-grid;
     display: grid;
-    -webkit-grid-template-columns: 30px, 208px;
-    -o-grid-template-columns: 30px, 208px;
-    -moz-grid-template-columns: 30px, 208px;
-    -ms-grid-template-columns: 30px, 208px;
+    -webkit-grid-template-columns: 30px 208px;
+    -o-grid-template-columns: 30px 208px;
+    -moz-grid-template-columns: 30px 208px;
+    -ms-grid-template-columns: 30px 208px;
     grid-template-columns: 30px 208px;
     -webkit--gap: 23px;
     -moz--gap: 23px;
@@ -129,10 +129,10 @@
   &__link {
     display: -ms-grid;
     display: grid;
-    -webkit-grid-template-columns: 30px, 1fr;
-    -o-grid-template-columns: 30px, 1fr;
-    -moz-grid-template-columns: 30px, 1fr;
-    -ms-grid-template-columns: 30px, 1fr;
+    -webkit-grid-template-columns: 30px 1fr;
+    -o-grid-template-columns: 30px 1fr;
+    -moz-grid-template-columns: 30px 1fr;
+    -ms-grid-template-columns: 30px 1fr;
     grid-template-columns: 30px 1fr;
     -webkit--gap: 23px;
     -moz--gap: 23px;
@@ -186,10 +186,10 @@
   }
 
   .contacts__block {
-    -webkit-grid-template-columns: 30px, 1fr;
-    -o-grid-template-columns: 30px, 1fr;
-    -moz-grid-template-columns: 30px, 1fr;
-    -ms-grid-template-columns: 30px, 1fr;
+    -webkit-grid-template-columns: 30px 1fr;
+    -o-grid-template-columns: 30px 1fr;
+    -moz-grid-template-columns: 30px 1fr;
+    -ms-grid-template-columns: 30px 1fr;
     grid-template-columns: 30px 1fr;
     -webkit--gap: 15px;
     -moz--gap: 15px;

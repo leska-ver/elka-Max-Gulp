@@ -354,10 +354,10 @@ textarea {
   &__logo {
     display: -ms-grid;
     display: grid;
-    -webkit-grid-template-columns: 60px, 200px;
-    -o-grid-template-columns: 60px, 200px;
-    -moz-grid-template-columns: 60px, 200px;
-    -ms-grid-template-columns: 60px, 200px;
+    -webkit-grid-template-columns: 60px 200px;
+    -o-grid-template-columns: 60px 200px;
+    -moz-grid-template-columns: 60px 200px;
+    -ms-grid-template-columns: 60px 200px;
     grid-template-columns: 60px 200px;
     -webkit--gap: 23px;
     -moz--gap: 23px;
@@ -517,10 +517,10 @@ textarea {
   -webkit--gap: 20px;
   -moz--gap: 20px;
   gap: 0 69px;
-  -webkit-grid-template-columns: repeat(2, 1fr);
-  -o-grid-template-columns: repeat(2, 1fr);
-  -moz-grid-template-columns: repeat(2, 1fr);
-  -ms-grid-template-columns: repeat(2, 1fr);
+  -webkit-grid-template-columns: 132px 1fr;
+  -o-grid-template-columns: 132px 1fr;
+  -moz-grid-template-columns: 132px 1fr;
+  -ms-grid-template-columns: 132px 1fr;
   grid-template-columns: 132px 1fr;
   padding: 0;
 }
@@ -814,10 +814,10 @@ textarea {
   }
 
   .pattern__logo {
-    -webkit-grid-template-columns: 50px, 174;
-    -o-grid-template-columns: 50px, 174;
-    -moz-grid-template-columns: 50px, 174;
-    -ms-grid-template-columns: 50px, 174;
+    -webkit-grid-template-columns: 50px 174px;
+    -o-grid-template-columns: 50px 174px;
+    -moz-grid-template-columns: 50px 174px;
+    -ms-grid-template-columns: 50px 174px;
     grid-template-columns: 50px 174px;
   }
 

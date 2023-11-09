@@ -26,10 +26,10 @@
   }
   
   .footer__pattern .pattern__logo {
-    -webkit-grid-template-columns: 50px, 1fr;
-    -o-grid-template-columns: 50px, 1fr;
-    -moz-grid-template-columns: 50px, 1fr;
-    -ms-grid-template-columns: 50px, 1fr;
+    -webkit-grid-template-columns: 50px 1fr;
+    -o-grid-template-columns: 50px 1fr;
+    -moz-grid-template-columns: 50px 1fr;
+    -ms-grid-template-columns: 50px 1fr;
     grid-template-columns: 50px 1fr;
     align-items: center;
     margin: 0 auto 10px;
@@ -42,10 +42,10 @@
 
 @include small-mobile {/*515*/ 
   .footer__pattern .pattern__logo {
-    -webkit-grid-template-columns: 50px, 177px;
-    -o-grid-template-columns: 50px, 177px;
-    -moz-grid-template-columns: 50px, 177px;
-    -ms-grid-template-columns: 50px, 177px;
+    -webkit-grid-template-columns: 50px 177px;
+    -o-grid-template-columns: 50px 177px;
+    -moz-grid-template-columns: 50px 177px;
+    -ms-grid-template-columns: 50px 177px;
     grid-template-columns: 50px 177px;
     align-items: inherit;
     margin: 0 0 10px;
